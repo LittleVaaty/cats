@@ -42,6 +42,11 @@ export class SimpleActorSheet extends ActorSheet {
     data.actor = actorData;
     data.data = actorData.data;
   
+    for ( let [a, abl] of Object.entries(actorData.data.abilities)) {
+      abl.isPhysique = abl.type === "physique";
+      abl.isMental =  abl.type === "mental";
+    }
+
 
     if (CATS.debug) console.log("CATS | ActorSheet getData", data);
     return data;

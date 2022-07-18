@@ -244,3 +244,12 @@
   min-width: 460px;
   min-height: 400px;
 }
+
+.cats .ability {
+  display: inline-block;
+  width: 49%;
+}
+
+.cats .ability input {
+  width: 50px;
+}

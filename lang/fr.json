@@ -1,0 +1,65 @@
+{
+    "SETTINGS.SimpleMacroShorthandN": "Shortened Macro Syntax",
+    "SETTINGS.SimpleMacroShorthandL": "Enable a shortened macro syntax which allows referencing attributes directly, for example @str instead of @attributes.str.value. Disable this setting if you need the ability to reference the full attribute model, for example @attributes.str.label.",
+    "SETTINGS.SimpleInitFormulaN": "Initiative Formula",
+    "SETTINGS.SimpleInitFormulaL": "Enter an initiative formula, such as d20+@dex",
+  
+    "CATS.ItemCreate": "Create Item",
+    "CATS.ItemEdit": "Edit Item",
+    "CATS.ItemDelete": "Delete Item",
+    "CATS.ItemNew": "New Item",
+  
+    "CATS.NotifyInitFormulaUpdated": "Initiative formula was updated to",
+    "CATS.NotifyInitFormulaInvalid": "Initiative formula was invalid",
+    "CATS.NotifyGroupDuplicate": "Attribute group already exists.",
+    "CATS.NotifyGroupAttrDuplicate": "Attribute group already exists as an attribute.",
+    "CATS.NotifyGroupAlphanumeric": "Attribute group names may not contain spaces or periods.",
+    "CATS.NotifyGroupReserved": "Attribute group \"{key}\" is reserved and cannot be used.",
+    "CATS.NotifyAttrDuplicate": "Attribute key already exists as a group.",
+  
+    "CATS.ResourceMin": "Min",
+    "CATS.ResourceValue": "Value",
+    "CATS.ResourceMax": "Max",
+  
+    "CATS.DefineTemplate": "Define as Template",
+    "CATS.UnsetTemplate": "Unset Template",
+    "CATS.NoTemplate": "No Template",
+  
+    "CATS.AttributeKey": "Attribute Key",
+    "CATS.AttributeValue": "Value",
+    "CATS.AttributeLabel": "Label",
+    "CATS.AttributeDtype": "Data Type",
+  
+    "CATS.DeleteGroup": "Suprimez le groupe?",
+    "CATS.DeleteGroupContent": "Do you wish to delete this group? This will delete the following group and all attributes included in it: ",
+  
+    "CATS.Create": "Créé",
+    "CATS.New": "Nouveau",
+  
+    "CATS.RaceAbyssin": "Abyssin",
+    "CATS.RaceAngora": "Angora",
+    "CATS.RaceBengal": "Bengal",
+    "CATS.RaceBirman": "Birman",
+    "CATS.RaceBritishShorthair": "British Shorthair",
+    "CATS.RaceChartreux": "Chartreux",
+    "CATS.RaceEuropean": "Européen",
+    "CATS.RaceExoticShortair": "Exotic Shorthair",
+    "CATS.RaceMainCoon": "Main Coon",
+    "CATS.RaceNorvegian": "Norvégien",
+    "CATS.RaceOriental": "Oriental",
+    "CATS.RacePersan": "Persan",
+    "CATS.RaceRagdoll": "Ragdoll",
+    "CATS.RaceScottish": "Scottish",
+    "CATS.RaceSiamois": "Siamois",
+    "CATS.RaceSomali": "Somali",
+
+    "CATS.CaracGriffe": "Griffe (Force)",
+    "CATS.CaracPoil": "Poil (Vigueur)",
+    "CATS.CaracOeil": "Oeil (Agilité)",
+    "CATS.CaracQueue": "Queue (Précision)",
+    "CATS.CaracChance": "Chance",
+    "CATS.CaracCaresse": "Caresse (intelligence)",
+    "CATS.CaracRonronnement": "Ronronnement (Volonté)",
+    "CATS.CaracCoussinet": "Coussinet (Intuition)",
+    "CATS.CaracVibrisse": "Vibrisse (Sociabilité)"
+  }

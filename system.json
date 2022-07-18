@@ -11,9 +11,9 @@
   "packs": [],
   "languages": [
     {
-      "lang": "en",
-      "name": "English",
-      "path": "lang/en.json"
+      "lang": "fr",
+      "name": "français",
+      "path": "lang/fr.json"
     }
   ],
   "gridDistance": 5,

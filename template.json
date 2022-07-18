@@ -21,7 +21,53 @@
     "lineage":"",
     "faction": "",
     "attributes": {},
-    "type":"",
+    "abilities":{
+      "griffe": {
+        "type": "physique",
+        "label": "CATS.CaracGriffe",
+        "value": 0
+      },
+      "poil": {
+        "type": "physique",
+        "label": "CATS.CaracPoil",
+        "value": 0
+      },
+      "oeil": {
+        "type": "physique",
+        "label": "CATS.CaracOeil",
+        "value": 0
+      },
+      "queue": {
+        "type": "physique",
+        "label": "CATS.CaracQueue",
+        "value": 0
+      },
+      "chance": {
+        "type": "chance",
+        "label": "CATS.CaracChance",
+        "value": 0
+      },
+      "caresse": {
+        "type": "mental",
+        "label": "CATS.CaracCaresse",
+        "value": 0
+      },
+      "ronronnement": {
+        "type": "mental",
+        "label": "CATS.CaracRonronnement",
+        "value": 0
+      },
+      "cousinet": {
+        "type": "mental",
+        "label": "CATS.CaracCoussinet",
+        "value": 0
+      },
+      "vibrisse": {
+        "type": "mental",
+        "label": "CATS.CaracVibrisse",
+        "value": 0
+      }
+    },
     "age":""
   }
 },
