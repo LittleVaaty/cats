@@ -1,0 +1,246 @@
+.cats {
+  /* Sheet Tabs */
+  /* Items List */
+  /* Attributes */
+}
+.cats .window-content {
+  height: 100%;
+  padding: 5px;
+  overflow-y: hidden;
+}
+.cats form {
+  height: 100%;
+}
+
+.cats .sheet-header {
+  display: grid!important;
+  grid-template-columns: 33.33% 33.33% 33.33%;
+  grid-template-rows: 80px 200px;
+  padding: 10px;
+}
+
+.cats .sheet-header-item {
+  padding: 20px;
+}
+
+.cats .sheet-header .profile-img {
+  height: 200px;
+  width: 200px; 
+}
+.cats .sheet-header .header-fields {
+  height: 100px;
+}
+.cats .sheet-header h1.charname {
+  height: 50px;
+  padding: 0px;
+  margin: 5px 0;
+  border-bottom: 0;
+}
+.cats .sheet-header h1.charname input {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+.cats .resource {
+  width: 50%;
+  height: 40px;
+  margin-top: 10px;
+  float: left;
+  text-align: center;
+}
+.cats .resource input {
+  width: 100px;
+  height: 28px;
+}
+.cats .tabs {
+  flex: 0 0 40px;
+  border-top: 1px solid #AAA;
+  border-bottom: 1px solid #AAA;
+}
+.cats .tabs .item {
+  line-height: 40px;
+  font-weight: bold;
+}
+.cats .tabs .item.active {
+  text-decoration: underline;
+  text-shadow: none;
+}
+.cats .sheet-body {
+  overflow: hidden;
+}
+.cats .sheet-body .tab {
+  height: 100%;
+  overflow-y: auto;
+}
+.cats .editor,
+.cats .editor-content {
+  height: 100%;
+}
+.cats .item-list {
+  list-style: none;
+  margin: 7px 0;
+  padding: 0;
+  overflow-y: auto;
+}
+.cats .item-list .item {
+  min-height: 30px;
+  line-height: 24px;
+  padding: 3px 0;
+  border-bottom: 1px solid #BBB;
+  align-items: stretch;
+}
+.cats .item-list .item img {
+  flex: 0 0 24px;
+  margin-right: 5px;
+}
+.cats .item-list .item-name {
+  margin: 0;
+}
+.cats .item-list .item-controls {
+  flex: 0 0 36px;
+}
+.cats .item-list .item-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  flex: 2;
+  justify-content: flex-start;
+}
+.cats .item-list .item-button {
+  line-height: 1;
+  font-size: 11px;
+  flex: none;
+  width: auto;
+}
+.cats .attributes {
+  position: relative;
+}
+.cats .attributes .attribute-control,
+.cats .attributes .group-control {
+  flex: 0 0 20px;
+  text-align: center;
+  line-height: 28px;
+  border: none;
+}
+.cats .attributes .attribute-roll {
+  flex: 0 0 20px;
+  text-align: center;
+  border-bottom: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cats .attributes .group-prefix {
+  height: 31px;
+  margin-right: 10px;
+}
+.cats .attributes .button {
+  width: 100%;
+  flex: 1;
+  margin: 0;
+  background: rgba(0, 0, 0, 0.1);
+  border: 2px groove #f0f0e0;
+  border-radius: 3px;
+  font-size: 14px;
+  line-height: 28px;
+  display: block;
+}
+.cats .attributes .attribute-key {
+  background: transparent;
+  border: none;
+}
+.cats .attributes-header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  align-items: center;
+  padding: 0 5px;
+  margin: 5px 0;
+  background: #cfcdc2;
+  border: 1px solid #AAA;
+  border-radius: 2px;
+  text-align: left;
+  font-weight: bold;
+}
+.cats .attributes-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.cats .attributes-list li > * {
+  margin: 0 3px;
+  height: 28px;
+  line-height: 24px;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid #AAA;
+}
+.cats .attributes-list .attribute-col label {
+  font-size: 10px;
+  text-align: center;
+  line-height: 1;
+}
+.cats .attributes-list .attribute-col input {
+  font-size: 11px;
+  text-align: center;
+  line-height: 1;
+  height: 50%;
+}
+.cats .attribute input[type="text"]::placeholder,
+.cats .group-header input[type="text"]::placeholder {
+  opacity: 0;
+  transition: opacity 0.25s ease-in-out;
+}
+.cats .attribute input[type="text"]:focus::placeholder,
+.cats .group-header input[type="text"]:focus::placeholder {
+  opacity: 1;
+}
+.cats .group-controls {
+  margin: 5px;
+}
+.cats .groups-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.cats .group {
+  margin: 5px 0 0;
+  padding: 0;
+}
+.cats .group-header {
+  align-items: center;
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid #AAA;
+  border-radius: 2px;
+  padding: 2px 5px;
+}
+.cats .group-key,
+.cats .group-label {
+  font-weight: bold;
+  border: none;
+  border-bottom: 1px solid #AAA;
+  background: transparent;
+  border-radius: 0;
+  margin-right: 6px;
+}
+.cats .group-key {
+  opacity: 0.75;
+}
+.cats .group-label {
+  flex: 2;
+}
+.cats .group-dtype {
+  height: 24px;
+  flex: 0 0 116px;
+  margin: 0 5px;
+}
+.cats.sheet.actor {
+  min-width: 560px;
+  min-height: 420px;
+}
+.cats.sheet.item {
+  min-width: 460px;
+  min-height: 400px;
+}

@@ -1,0 +1,68 @@
+<form class="flexcol {{cssClass}}" autocomplete="off">
+
+    {{!-- Sheet Header --}}
+    <header class="sheet-header">
+        <div class=".sheet-header-item">
+            <h1 class="charname">
+                <input name="" type="text" value="Chat" placeholder="Type" />
+            </h1>
+        </div>
+        <div class=".sheet-header-item">
+            <h1 class="charname">
+                <input name="name" type="text" value="{{actor.name}}" placeholder="Name" />
+            </h1>
+        </div>
+        <div class=".sheet-header-item">
+            <h1 class="charname">
+                <input name="data.age" type="number" value="{{actor.data.age}}" placeholder="Age" />
+            </h1>
+        </div>
+        <div class=".sheet-header-item">
+            <div class="resource">
+                <label>Race: </label>
+                <select  class="selectrace"  name="data.race" data-type="String">
+                    {{#select actor.data.race}}
+                        <option value="">---</option>
+                        {{#each config.races as |race key|}}
+                        <option value="{{key}}">{{localize race}}</option>
+                        {{/each}}
+                    {{/select}}
+                </select>
+            </div>
+            <div class="resource">
+                <label>Lignée: </label>
+                <input name="data.lineage" type="text" value="{{actor.data.lineage}}" placeholder="Lignée" />
+            </div>
+            <div class="resource">
+                <label>Réputation: </label>
+                <input name="data.reputation" type="number" value="{{actor.data.reputation}}" placeholder="Réputation" />
+            </div>
+            <div class="resource">
+                <label>Faction: </label>
+                <input name="data.faction" type="text" value="{{actor.data.faction}}" placeholder="Faction" />
+            </div>
+        </div>
+        <img class=".sheet-header-item profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100" />
+        <div class=".sheet-header-item">Niveaux de blessures</div>
+    </header>
+
+    {{!-- Sheet Tab Navigation --}}
+    <nav class="sheet-tabs tabs" data-group="primary">
+        <a class="item" data-tab="attributes">Attributes</a>
+    </nav>
+
+    {{!-- Sheet Body --}}
+    <section class="sheet-body">
+
+        <!-- {{!-- Biography Tab --}}
+        <div class="tab description" data-group="primary" data-tab="description">
+            {{editor content=systemData.biography target="data.biography" button=true owner=owner editable=editable rollData=rollData}}
+        </div> -->
+
+        {{!-- Attributes Tab --}}
+        <div class="tab attributes" data-group="primary" data-tab="attributes">
+            {{!-- Render the attribute list partial. --}}
+            {{> "systems/cats/templates/parts/sheet-attributes.html"}}
+        </div>
+    </section>
+</form>

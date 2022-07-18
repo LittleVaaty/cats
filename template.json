@@ -1,0 +1,38 @@
+{
+"Actor": {
+  "types": ["character"],
+  "character": {
+    "biography": "",
+    "life":{
+      "one": false,
+      "two": false,
+      "three": false,
+      "four": false,
+      "five": false,
+      "six": false,
+      "seven": false,
+      "eight": false,
+      "nine": false
+    },
+    "quality":[],
+    "defaults": [],
+    "race": "",
+    "reputation": 0,
+    "lineage":"",
+    "faction": "",
+    "attributes": {},
+    "type":"",
+    "age":""
+  }
+},
+"Item": {
+  "types": ["item"],
+  "item": {
+    "description": "",
+    "quantity": 1,
+    "weight": 0,
+    "attributes": {},
+    "groups": {}
+  }
+}
+}
