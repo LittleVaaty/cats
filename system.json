@@ -20,8 +20,8 @@
   "gridUnits": "ft",
   "primaryTokenAttribute": "health",
   "secondaryTokenAttribute": "power",
-  "url": "https://gitlab.com/foundrynet/worldbuilding/",
-  "manifest": "https://raw.githubusercontent.com/foundryvtt/worldbuilding/master/system.json",
+  "url": "https://github.com/LittleVaaty/cats/",
+  "manifest": "https://raw.githubusercontent.com/LittleVaaty/cats/main/system.json",
   "download": "https://github.com/foundryvtt/worldbuilding/archive/refs/tags/release-065.zip",
-  "license": "LICENSE.txt"
+  "license": "LICENSE"
 }
