@@ -22,6 +22,6 @@
   "secondaryTokenAttribute": "power",
   "url": "https://github.com/LittleVaaty/cats/",
   "manifest": "https://raw.githubusercontent.com/LittleVaaty/cats/main/system.json",
-  "download": "https://github.com/foundryvtt/worldbuilding/archive/refs/tags/release-065.zip",
+  "download": "https://github.com/LittleVaaty/cats/archive/refs/tags/release-065.zip",
   "license": "LICENSE"
 }
