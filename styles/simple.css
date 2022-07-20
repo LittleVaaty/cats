@@ -253,3 +253,36 @@
 .cats .ability input {
   width: 50px;
 }
+
+.cats .container {
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.cats .col-25 {
+  float: left;
+  width: 50%;
+  margin-top: 6px;
+}
+
+.cats .col-75 {
+  float: left;
+  width: 50%;
+  margin-top: 6px;
+}
+
+.cats .col-75 input {
+  width: 50px;
+}
+
+.cats .container label {
+  display: inline-block;
+}
+
+.cats .skill .skill-name-controls {
+  display: inline-block;
+}
+
+.cats .skill input {
+  width: 50px;
+}
