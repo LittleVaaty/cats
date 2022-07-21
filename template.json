@@ -177,7 +177,8 @@
         "inconscience": false,
         "coma": false,
         "death": false
-      }
+      },
+      "talents": []
     }
   },
   "Item": {

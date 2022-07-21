@@ -21,3 +21,7 @@ CATS.races = {
     "sia": "CATS.RaceSiamois",
     "som": "CATS.RaceSomali"
   };
+
+CATS.talents = {
+  arm : "armure"
+}

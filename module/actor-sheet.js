@@ -1,6 +1,7 @@
 import { EntitySheetHelper } from "./helper.js";
 import {ATTRIBUTE_TYPES} from "./constants.js";
 import {CATS} from "./config.js";
+import TalentConfig from "./apps/talent-config.js";
 
 /**
  * Extend the basic ActorSheet with some very simple modifications
@@ -70,6 +71,9 @@ export class SimpleActorSheet extends ActorSheet {
     html.find(".item-control").click(this._onItemControl.bind(this));
     html.find(".items .rollable").on("click", this._onItemRoll.bind(this));
 
+
+    html.find(".add-talent").click(this._onAddTalent.bind(this));
+
     // Add draggable for Macro creation
     html.find(".attributes a.attribute-roll").each((i, a) => {
       a.setAttribute("draggable", true);
@@ -134,4 +138,12 @@ export class SimpleActorSheet extends ActorSheet {
     formData = EntitySheetHelper.updateGroups(formData, this.object);
     return formData;
   }
+
+  _onAddTalent(event) {
+    event.preventDefault();
+    const button = event.currentTarget;
+    let app;
+    app = new TalentConfig(this.object, null);
+    app?.render(true);
+ }
 }

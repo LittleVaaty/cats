@@ -1,0 +1,10 @@
+<a class="add-talent">Add</a>
+<ul class="skills-list">
+    {{#each actor.data.talents as |talent key|}}
+    <li class="skill">
+        <div class="skill-name-controls">
+            <label class="skill-name rollable">{{ talent }}</label>
+        </div>
+    </li>
+    {{/each}}
+</ul>
