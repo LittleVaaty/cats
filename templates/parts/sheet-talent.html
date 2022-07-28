@@ -1,10 +1,12 @@
-<a class="add-talent">Add</a>
-<ul class="skills-list">
+<table id="talents">
+    <tr>
+        <th>Talent</th>
+        <th><span><a class="add-talent">Add</a></span></th>
+    </tr>
     {{#each actor.data.talents as |talent key|}}
-    <li class="skill">
-        <div class="skill-name-controls">
-            <label class="skill-name rollable">{{ talent }}</label>
-        </div>
-    </li>
+    <tr>
+        <td>{{ talent }}</td>
+        <td><span>Delete {{ key }}</span>></td>
+    </tr>
     {{/each}}
-</ul>
+</table>
