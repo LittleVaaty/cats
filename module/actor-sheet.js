@@ -73,6 +73,7 @@ export class SimpleActorSheet extends ActorSheet {
 
 
     html.find(".add-talent").click(this._onAddTalent.bind(this));
+    html.find(".remove-talent").click(this._onRemoveTalent.bind(this));
 
     // Add draggable for Macro creation
     html.find(".attributes a.attribute-roll").each((i, a) => {
@@ -145,5 +146,10 @@ export class SimpleActorSheet extends ActorSheet {
     let app;
     app = new TalentConfig(this.object, null);
     app?.render(true);
+ }
+ _onRemoveTalent(event) {
+  event.preventDefault();
+  const input = event.target;
+  const value = input.value;
  }
 }
