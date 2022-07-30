@@ -8,7 +8,7 @@ import { CATS } from "../config.js";
 
     constructor(actor, opts) {
       super(actor, opts);
-      this._talens = [];
+      this._talens = actor.data.data.talents;
     }
   
     /** @override */

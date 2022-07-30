@@ -1,12 +1,12 @@
 <table id="talents">
     <tr>
         <th>Talent</th>
-        <th><a class="add-talent"><span class="fas fa-plus"></span>></a></th>
+        <th><a class="add-talent"><span class="fas fa-plus"></span></a></th>
     </tr>
     {{#each actor.data.talents as |talent key|}}
     <tr>
         <td>{{ talent }}</td>
-        <td><a class="remove-talent" value="{{ key }}"><span class="fas fa-trash"></span>></a></td>
+        <td><a class="remove-talent" data-talent="{{key}}"><span class="fas fa-trash"></span></a></td>
     </tr>
     {{/each}}
 </table>

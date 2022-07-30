@@ -23,5 +23,5 @@ CATS.races = {
   };
 
 CATS.talents = {
-  arm : "armure"
+  arm : "CATS.TalentArmure"
 }

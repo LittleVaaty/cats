@@ -149,7 +149,9 @@ export class SimpleActorSheet extends ActorSheet {
  }
  _onRemoveTalent(event) {
   event.preventDefault();
-  const input = event.target;
-  const value = input.value;
+  const talentIndex = event.currentTarget.getAttribute("data-talent");
+  var talents = this.actor.data.data.talents;
+  talents.splice(talentIndex, 1);
+  this.object.update({"data.talents": talents});
  }
 }
