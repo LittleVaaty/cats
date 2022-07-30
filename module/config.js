@@ -23,5 +23,26 @@ CATS.races = {
   };
 
 CATS.talents = {
-  arm : "CATS.TalentArmure"
+  arm : "CATS.TalentArmure",
+  all : "CATS.TalentAllergene",
+  arr : "CATS.TalentArretTemporel",
+  bro : "CATS.TalentBrouilleurElectronique",
+  cau : "CATS.TalentClairaudience",
+  cvo : "CATS.TalentClairvoyance",
+  gra : "CATS.TalentControleGravitationel",
+  men : "CATS.TalentControleMental",
+  tem : "CATS.TalentDeplacementTemporel",
+  sch : "CATS.TalentEffetSchrodinger",
+  for : "CATS.TalentForce",
+  hyp : "CATS.TalentHypnose",
+  pas : "CATS.TalentPasseMuraille",
+  pes : "CATS.TalentPesanteur",
+  pol : "CATS.TalentPoltergeist",
+  pre : "CATS.TalentPrescience",
+  reg : "CATS.TalentRegeneration",
+  six : "CATS.TalentSixiemeSens",
+  som : "CATS.TalentSommeil",
+  tki : "CATS.TalentTelekinesie",
+  tpa : "CATS.TalentTelepathie",
+  tpo : "CATS.TalentTeleportation"
 }
