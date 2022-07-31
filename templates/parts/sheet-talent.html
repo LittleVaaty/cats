@@ -5,7 +5,7 @@
     </tr>
     {{#each actor.data.talents as |talent key|}}
     <tr>
-        <td>{{ talent }}</td>
+        <td>{{ localize talent }}</td>
         <td><a class="remove-talent" data-talent="{{key}}"><span class="fas fa-trash"></span></a></td>
     </tr>
     {{/each}}
