@@ -27,148 +27,199 @@
         "griffe": {
           "type": "physique",
           "label": "CATS.CaracGriffe",
-          "value": 0
+          "value": 1,
+          "min": 1,
+          "max": 5
         },
         "poil": {
           "type": "physique",
           "label": "CATS.CaracPoil",
-          "value": 0
+          "value": 1,
+          "min": 1,
+          "max": 5
         },
         "oeil": {
           "type": "physique",
           "label": "CATS.CaracOeil",
-          "value": 0
+          "value": 1,
+          "min": 1,
+          "max": 5
         },
         "queue": {
           "type": "physique",
           "label": "CATS.CaracQueue",
-          "value": 0
+          "value": 1,
+          "min": 1,
+          "max": 5
         },
         "chance": {
           "type": "chance",
           "label": "CATS.CaracChance",
-          "value": 0
+          "value": 1,
+          "min": 1,
+          "max": 5
         },
         "caresse": {
           "type": "mental",
           "label": "CATS.CaracCaresse",
-          "value": 0
+          "value": 1,
+          "min": 1,
+          "max": 5
         },
         "ronronnement": {
           "type": "mental",
           "label": "CATS.CaracRonronnement",
-          "value": 0
+          "value": 1,
+          "min": 1,
+          "max": 5
         },
         "cousinet": {
           "type": "mental",
           "label": "CATS.CaracCoussinet",
-          "value": 0
+          "value": 1,
+          "min": 1,
+          "max": 5
         },
         "vibrisse": {
           "type": "mental",
           "label": "CATS.CaracVibrisse",
-          "value": 0
+          "value": 1,
+          "min": 1,
+          "max": 5
         }
       },
       "skills": {
         "chasse": {
           "baseValue": "",
-          "learnValue": "",
+          "learnvalue": "",
+          "min": 0,
+          "max": 5,
           "label": "CATS.SkillChasse"
         },
         "cultureGeneral": {
           "baseValue": "",
-          "learnValue": "",
+          "learnvalue": "",
+          "min": 0,
+          "max": 5,
           "label": "CATS.SkillCultureGeneral"
         },
         "combatGriffu": {
           "baseValue": "",
-          "learnValue": "",
+          "learnvalue": "",
+          "min": 0,
+          "max": 5,
           "label": "CATS.SkillCombatGriffu"
         },
         "connaisanceRue": {
           "baseValue": "",
-          "learnValue": "",
+          "learnvalue": "",
+          "min": 0,
+          "max": 5,
           "label": "CATS.SkillConnaisanceRue"
         },
         "discretion": {
           "baseValue": "",
-          "learnValue": "",
+          "learnvalue": "",
+          "min": 0,
+          "max": 5,
           "label": "CATS.SkillDiscretion"
         },
         "enerverHumain": {
           "baseValue": "",
-          "learnValue": "",
+          "learnvalue": "",
+          "min": 0,
+          "max": 5,
           "label": "CATS.SkillEnerverHumain"
-        }
-        ,
+        },
         "langageHumain": {
           "baseValue": "",
-          "learnValue": "",
+          "learnvalue": "",
+          "min": 0,
+          "max": 5,
           "label": "CATS.SkillLangageHumain"
-        }
-        ,
+        },
         "leadership": {
           "baseValue": "",
-          "learnValue": "",
+          "learnvalue": "",
+          "min": 0,
+          "max": 5,
           "label": "CATS.SkillLeadership"
-        }
-        ,
+        },
         "odorat": {
           "baseValue": "",
-          "learnValue": "",
+          "learnvalue": "",
+          "min": 0,
+          "max": 5,
           "label": "CATS.SkillOdorat"
-        }
-        ,
+        },
         "orientation": {
           "baseValue": "",
-          "learnValue": "",
+          "learnvalue": "",
+          "min": 0,
+          "max": 5,
           "label": "CATS.SkillOrientation"
-        }
-        ,
+        },
         "psychologieHumaine": {
           "baseValue": "",
-          "learnValue": "",
+          "learnvalue": "",
+          "min": 0,
+          "max": 5,
           "label": "CATS.SkillPsychologieHumaine"
         },
         "reclamerManger": {
           "baseValue": "",
-          "learnValue": "",
+          "learnvalue": "",
+          "min": 0,
+          "max": 5,
           "label": "CATS.SkillReclamerManger"
         },
         "reclamerCaresses": {
           "baseValue": "",
-          "learnValue": "",
+          "learnvalue": "",
+          "min": 0,
+          "max": 5,
           "label": "CATS.SkillReclamerCaresses"
         },
         "saut": {
           "baseValue": "",
-          "learnValue": "",
+          "learnvalue": "",
+          "min": 0,
+          "max": 5,
           "label": "CATS.SkillSaut"
         },
         "seduire": {
           "baseValue": "",
-          "learnValue": "",
+          "learnvalue": "",
+          "min": 0,
+          "max": 5,
           "label": "CATS.SkillSeduire"
         },
         "survie": {
           "baseValue": "",
-          "learnValue": "",
+          "learnvalue": "",
+          "min": 0,
+          "max": 5,
           "label": "CATS.SkillSurvie"
         },
         "repererTrouver": {
           "baseValue": "",
-          "learnValue": "",
+          "learnvalue": "",
+          "min": 0,
+          "max": 5,
           "label": "CATS.SkillRepererTrouver"
         },
         "coutumesHumaine": {
           "baseValue": "",
-          "learnValue": "",
+          "learnvalue": "",
+          "min": 0,
+          "max": 5,
           "label": "CATS.SkillCoutumesHumaine"
         },
         "utiliserObjet": {
           "baseValue": "",
-          "learnValue": "",
+          "learnvalue": "",
+          "min": 0,
+          "max": 5,
           "label": "CATS.SkillUtiliserObjet"
         }
       },
