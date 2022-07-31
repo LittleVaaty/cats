@@ -1,184 +1,202 @@
 {
   "Actor": {
     "types": [
-      "character"
+      "chat", "basset", "humain"
     ],
-    "character": {
+    "templates":{
+      "common": {
+        "age": "",
+        "abilities": {
+          "griffe": {
+            "type": "physique",
+            "label": "CATS.CaracGriffe",
+            "value": 0
+          },
+          "poil": {
+            "type": "physique",
+            "label": "CATS.CaracPoil",
+            "value": 0
+          },
+          "oeil": {
+            "type": "physique",
+            "label": "CATS.CaracOeil",
+            "value": 0
+          },
+          "queue": {
+            "type": "physique",
+            "label": "CATS.CaracQueue",
+            "value": 0
+          },
+          "chance": {
+            "type": "chance",
+            "label": "CATS.CaracChance",
+            "value": 0
+          },
+          "caresse": {
+            "type": "mental",
+            "label": "CATS.CaracCaresse",
+            "value": 0
+          },
+          "ronronnement": {
+            "type": "mental",
+            "label": "CATS.CaracRonronnement",
+            "value": 0
+          },
+          "cousinet": {
+            "type": "mental",
+            "label": "CATS.CaracCoussinet",
+            "value": 0
+          },
+          "vibrisse": {
+            "type": "mental",
+            "label": "CATS.CaracVibrisse",
+            "value": 0
+          }
+        },
+        "quality": [],
+        "defaults": [],
+        "injuries": {
+          "inconscience": false,
+          "coma": false,
+          "death": false
+        },
+        "life": {
+          "one": false,
+          "two": false,
+          "three": false,
+          "four": false,
+          "five": false,
+          "six": false,
+          "seven": false,
+          "eight": false,
+          "nine": false
+        },
+        "race": "",
+        "reputation": 0,
+        "lineage": "",
+        "faction": "",
+        
+        "skills": {
+          "chasse": {
+            "baseValue": "",
+            "learnValue": "",
+            "label": "CATS.SkillChasse"
+          },
+          "cultureGeneral": {
+            "baseValue": "",
+            "learnValue": "",
+            "label": "CATS.SkillCultureGeneral"
+          },
+          "combatGriffu": {
+            "baseValue": "",
+            "learnValue": "",
+            "label": "CATS.SkillCombatGriffu"
+          },
+          "connaisanceRue": {
+            "baseValue": "",
+            "learnValue": "",
+            "label": "CATS.SkillConnaisanceRue"
+          },
+          "discretion": {
+            "baseValue": "",
+            "learnValue": "",
+            "label": "CATS.SkillDiscretion"
+          },
+          "enerverHumain": {
+            "baseValue": "",
+            "learnValue": "",
+            "label": "CATS.SkillEnerverHumain"
+          }
+          ,
+          "langageHumain": {
+            "baseValue": "",
+            "learnValue": "",
+            "label": "CATS.SkillLangageHumain"
+          }
+          ,
+          "leadership": {
+            "baseValue": "",
+            "learnValue": "",
+            "label": "CATS.SkillLeadership"
+          }
+          ,
+          "odorat": {
+            "baseValue": "",
+            "learnValue": "",
+            "label": "CATS.SkillOdorat"
+          }
+          ,
+          "orientation": {
+            "baseValue": "",
+            "learnValue": "",
+            "label": "CATS.SkillOrientation"
+          }
+          ,
+          "psychologieHumaine": {
+            "baseValue": "",
+            "learnValue": "",
+            "label": "CATS.SkillPsychologieHumaine"
+          },
+          "reclamerManger": {
+            "baseValue": "",
+            "learnValue": "",
+            "label": "CATS.SkillReclamerManger"
+          },
+          "reclamerCaresses": {
+            "baseValue": "",
+            "learnValue": "",
+            "label": "CATS.SkillReclamerCaresses"
+          },
+          "saut": {
+            "baseValue": "",
+            "learnValue": "",
+            "label": "CATS.SkillSaut"
+          },
+          "seduire": {
+            "baseValue": "",
+            "learnValue": "",
+            "label": "CATS.SkillSeduire"
+          },
+          "survie": {
+            "baseValue": "",
+            "learnValue": "",
+            "label": "CATS.SkillSurvie"
+          },
+          "repererTrouver": {
+            "baseValue": "",
+            "learnValue": "",
+            "label": "CATS.SkillRepererTrouver"
+          },
+          "coutumesHumaine": {
+            "baseValue": "",
+            "learnValue": "",
+            "label": "CATS.SkillCoutumesHumaine"
+          },
+          "utiliserObjet": {
+            "baseValue": "",
+            "learnValue": "",
+            "label": "CATS.SkillUtiliserObjet"
+          }
+        },
+        "talents": []
+      }
+    },
+    "chat": {
+      "templates": [
+        "common"
+      ],
       "biography": "",
-      "life": {
-        "one": false,
-        "two": false,
-        "three": false,
-        "four": false,
-        "five": false,
-        "six": false,
-        "seven": false,
-        "eight": false,
-        "nine": false
-      },
-      "quality": [],
-      "defaults": [],
-      "race": "",
-      "reputation": 0,
-      "lineage": "",
-      "faction": "",
-      "attributes": {},
-      "abilities": {
-        "griffe": {
-          "type": "physique",
-          "label": "CATS.CaracGriffe",
-          "value": 0
-        },
-        "poil": {
-          "type": "physique",
-          "label": "CATS.CaracPoil",
-          "value": 0
-        },
-        "oeil": {
-          "type": "physique",
-          "label": "CATS.CaracOeil",
-          "value": 0
-        },
-        "queue": {
-          "type": "physique",
-          "label": "CATS.CaracQueue",
-          "value": 0
-        },
-        "chance": {
-          "type": "chance",
-          "label": "CATS.CaracChance",
-          "value": 0
-        },
-        "caresse": {
-          "type": "mental",
-          "label": "CATS.CaracCaresse",
-          "value": 0
-        },
-        "ronronnement": {
-          "type": "mental",
-          "label": "CATS.CaracRonronnement",
-          "value": 0
-        },
-        "cousinet": {
-          "type": "mental",
-          "label": "CATS.CaracCoussinet",
-          "value": 0
-        },
-        "vibrisse": {
-          "type": "mental",
-          "label": "CATS.CaracVibrisse",
-          "value": 0
-        }
-      },
-      "skills": {
-        "chasse": {
-          "baseValue": "",
-          "learnValue": "",
-          "label": "CATS.SkillChasse"
-        },
-        "cultureGeneral": {
-          "baseValue": "",
-          "learnValue": "",
-          "label": "CATS.SkillCultureGeneral"
-        },
-        "combatGriffu": {
-          "baseValue": "",
-          "learnValue": "",
-          "label": "CATS.SkillCombatGriffu"
-        },
-        "connaisanceRue": {
-          "baseValue": "",
-          "learnValue": "",
-          "label": "CATS.SkillConnaisanceRue"
-        },
-        "discretion": {
-          "baseValue": "",
-          "learnValue": "",
-          "label": "CATS.SkillDiscretion"
-        },
-        "enerverHumain": {
-          "baseValue": "",
-          "learnValue": "",
-          "label": "CATS.SkillEnerverHumain"
-        }
-        ,
-        "langageHumain": {
-          "baseValue": "",
-          "learnValue": "",
-          "label": "CATS.SkillLangageHumain"
-        }
-        ,
-        "leadership": {
-          "baseValue": "",
-          "learnValue": "",
-          "label": "CATS.SkillLeadership"
-        }
-        ,
-        "odorat": {
-          "baseValue": "",
-          "learnValue": "",
-          "label": "CATS.SkillOdorat"
-        }
-        ,
-        "orientation": {
-          "baseValue": "",
-          "learnValue": "",
-          "label": "CATS.SkillOrientation"
-        }
-        ,
-        "psychologieHumaine": {
-          "baseValue": "",
-          "learnValue": "",
-          "label": "CATS.SkillPsychologieHumaine"
-        },
-        "reclamerManger": {
-          "baseValue": "",
-          "learnValue": "",
-          "label": "CATS.SkillReclamerManger"
-        },
-        "reclamerCaresses": {
-          "baseValue": "",
-          "learnValue": "",
-          "label": "CATS.SkillReclamerCaresses"
-        },
-        "saut": {
-          "baseValue": "",
-          "learnValue": "",
-          "label": "CATS.SkillSaut"
-        },
-        "seduire": {
-          "baseValue": "",
-          "learnValue": "",
-          "label": "CATS.SkillSeduire"
-        },
-        "survie": {
-          "baseValue": "",
-          "learnValue": "",
-          "label": "CATS.SkillSurvie"
-        },
-        "repererTrouver": {
-          "baseValue": "",
-          "learnValue": "",
-          "label": "CATS.SkillRepererTrouver"
-        },
-        "coutumesHumaine": {
-          "baseValue": "",
-          "learnValue": "",
-          "label": "CATS.SkillCoutumesHumaine"
-        },
-        "utiliserObjet": {
-          "baseValue": "",
-          "learnValue": "",
-          "label": "CATS.SkillUtiliserObjet"
-        }
-      },
-      "age": "",
-      "injuries": {
-        "inconscience": false,
-        "coma": false,
-        "death": false
-      },
-      "talents": []
+      "attributes": {}
+    },
+    "basset": {
+      "templates": [
+        "common"
+      ]
+    },
+    "humain": {
+      "templates": [
+        "common"
+      ]
     }
   },
   "Item": {

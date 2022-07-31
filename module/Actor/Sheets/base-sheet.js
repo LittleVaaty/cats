@@ -1,13 +1,13 @@
-import { EntitySheetHelper } from "./helper.js";
-import {ATTRIBUTE_TYPES} from "./constants.js";
-import {CATS} from "./config.js";
-import TalentConfig from "./apps/talent-config.js";
+import { EntitySheetHelper } from "../../helper.js";
+import {ATTRIBUTE_TYPES} from "../../constants.js";
+import {CATS} from "../../config.js";
+import TalentConfig from "../../apps/talent-config.js";
 
 /**
  * Extend the basic ActorSheet with some very simple modifications
  * @extends {ActorSheet}
  */
-export class SimpleActorSheet extends ActorSheet {
+export class BaseActorSheet extends ActorSheet {
 
   /** @inheritdoc */
   static get defaultOptions() {

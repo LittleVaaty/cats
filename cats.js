@@ -4,10 +4,12 @@
  */
 
 // Import Modules
-import { SimpleActor } from "./module/actor.js";
+import { CatsActor } from "./module/Actor/actor.js";
 import { SimpleItem } from "./module/item.js";
 import { SimpleItemSheet } from "./module/item-sheet.js";
-import { SimpleActorSheet } from "./module/actor-sheet.js";
+import { CatsActorSheet } from "./module/Actor/Sheets/cats-sheet.js";
+import { BassetActorSheet } from "./module/Actor/Sheets/basset-sheet.js";
+import { HumanActorSheet } from "./module/Actor/Sheets/human-sheet.js";
 import { preloadHandlebarsTemplates } from "./module/templates.js";
 import { createcatsMacro } from "./module/macro.js";
 import { SimpleToken, SimpleTokenDocument } from "./module/token.js";
@@ -34,9 +36,14 @@ Hooks.once("init", async function() {
   };
 
   game.cats = {
-    SimpleActor,
+    CatsActor,
     createcatsMacro,
-    useEntity: foundry.utils.isNewerVersion("9", game.version ?? game.data.version),
+    entities: {
+      CatsActor,
+      SimpleItem,
+      SimpleTokenDocument,
+      SimpleToken
+    },
     config: CATS,
     applications: {
       TalentConfig
@@ -44,14 +51,28 @@ Hooks.once("init", async function() {
   };
 
   // Define custom Document classes
-  CONFIG.Actor.documentClass = SimpleActor;
+  CONFIG.Actor.documentClass = CatsActor;
   CONFIG.Item.documentClass = SimpleItem;
   CONFIG.Token.documentClass = SimpleTokenDocument;
   CONFIG.Token.objectClass = SimpleToken;
 
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);
-  Actors.registerSheet("cats", SimpleActorSheet, { makeDefault: true });
+  Actors.registerSheet("cats", CatsActorSheet, { 
+    types: ["chat"],
+    makeDefault: true ,
+    label: "Chat"
+  });
+  Actors.registerSheet("cats", BassetActorSheet, { 
+    types: ["basset"],
+    makeDefault: true ,
+    label: "Basset"
+  });
+  Actors.registerSheet("cats", HumanActorSheet, { 
+    types: ["humain"],
+    makeDefault: true ,
+    label: "Humain"
+  });
   Items.unregisterSheet("core", ItemSheet);
   Items.registerSheet("cats", SimpleItemSheet, { makeDefault: true });
 
