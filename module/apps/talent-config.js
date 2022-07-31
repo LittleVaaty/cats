@@ -46,6 +46,8 @@ import { CATS } from "../config.js";
 
   _onAddTalent(event) {
     this._talens.push(event.currentTarget.outerText);
+    this.object.update({"data.talents": this._talens});
+    this.close();
   }
 
   /** @inheritdoc */

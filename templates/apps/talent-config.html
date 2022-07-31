@@ -2,10 +2,8 @@
   <ol>
     {{#each config.talents as |talent key|}}
     <li>
-      <label class="add-talent-item">{{ talent }}</label>
+      <a class="add-talent-item">{{ talent }}</a>
     </li>
     {{/each}}
   </ol>
-
-  <button type="submit" name="submit" value="1"><i class="far fa-save"></i> Submit</button>
 </form>
