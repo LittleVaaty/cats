@@ -14,7 +14,6 @@ import { preloadHandlebarsTemplates } from "./module/templates.js";
 import { createcatsMacro } from "./module/macro.js";
 import { SimpleToken, SimpleTokenDocument } from "./module/token.js";
 import { CATS } from "./module/config.js";
-import  TalentConfig  from "./module/apps/talent-config.js";
 
 /* -------------------------------------------- */
 /*  Foundry VTT Initialization                  */
@@ -46,7 +45,6 @@ Hooks.once("init", async function() {
     },
     config: CATS,
     applications: {
-      TalentConfig
     }
   };
 
