@@ -2,7 +2,7 @@
   <ol>
     {{#each config.talents as |talent key|}}
     <li>
-      <a class="add-talent-item">{{localize talent }}</a>
+      <a class="add-talent-item" data-talent="{{key}}">{{localize talent.label }}</a>
     </li>
     {{/each}}
   </ol>

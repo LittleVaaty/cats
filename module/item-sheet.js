@@ -11,7 +11,6 @@ export class SimpleItemSheet extends ItemSheet {
   static get defaultOptions() {
     return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ["cats", "sheet", "item"],
-      template: "systems/cats/templates/item-sheet.html",
       width: 520,
       height: 480,
       tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description"}],
@@ -19,15 +18,23 @@ export class SimpleItemSheet extends ItemSheet {
     });
   }
 
+  /** @inheritdoc */
+  get template() {
+    const path = "systems/cats/templates/items/";
+    return `${path}/${this.item.data.type}.html`;
+  }
+
   /* -------------------------------------------- */
 
   /** @inheritdoc */
   getData() {
-    const context = super.getData();
-    EntitySheetHelper.getAttributeData(context.data);
-    context.systemData = context.data.data;
-    context.dtypes = ATTRIBUTE_TYPES;
-    return context;
+    const data = super.getData();
+    const itemData = data.data;
+    EntitySheetHelper.getAttributeData(itemData);
+    data.systemData = data.data.data;
+    data.dtypes = ATTRIBUTE_TYPES;
+    data.itemStatus = this._getItemStatus(itemData);
+    return data;
   }
 
   /* -------------------------------------------- */
@@ -62,5 +69,21 @@ export class SimpleItemSheet extends ItemSheet {
     formData = EntitySheetHelper.updateAttributes(formData, this.object);
     formData = EntitySheetHelper.updateGroups(formData, this.object);
     return formData;
+  }
+
+  _getItemStatus(item) {
+    switch ( item.type ) {
+      case "talent": item.data.level.ordinalString()
+        return ""
+      case "class":
+        return game.i18n.format("DND5E.LevelCount", {ordinal: item.data.levels.ordinalString()});
+      case "equipment":
+      case "weapon":
+        return game.i18n.localize(item.data.equipped ? "DND5E.Equipped" : "DND5E.Unequipped");
+      case "spell":
+        return CONFIG.DND5E.spellPreparationModes[item.data.preparation];
+      case "tool":
+        return game.i18n.localize(item.data.proficient ? "DND5E.Proficient" : "DND5E.NotProficient");
+    }
   }
 }

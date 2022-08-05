@@ -8,7 +8,7 @@ import { CATS } from "../config.js";
 
     constructor(actor, opts) {
       super(actor, opts);
-      this._talens = actor.data.data.talents;
+      this._talents = actor.data.data.talents;
     }
   
     /** @override */
@@ -45,15 +45,15 @@ import { CATS } from "../config.js";
   }
 
   _onAddTalent(event) {
-    this._talens.push(event.currentTarget.outerText);
-    this.object.update({"data.talents": this._talens});
+    const talentKey = event.currentTarget.getAttribute("data-talent");
+    this._talents.push(CATS.talents[talentKey]);
+    this.object.update({"data.talents": this._talents});
     this.close();
   }
 
   /** @inheritdoc */
   async _updateObject(event, formData) {
-    //const ac = foundry.utils.expandObject(formData).ac;
-    return this.object.update({"data.talents": this._talens});
+    return this.object.update({"data.talents": this._talents});
   }
 
   }

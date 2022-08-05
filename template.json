@@ -201,7 +201,7 @@
   },
   "Item": {
     "types": [
-      "item"
+      "item", "talent"
     ],
     "item": {
       "description": "",
@@ -209,6 +209,13 @@
       "weight": 0,
       "attributes": {},
       "groups": {}
+    },
+    "talent": {
+      "label": "",
+      "level": 0,
+      "fonctionnement": "",
+      "rules": "",
+      "Explication": ""
     }
   }
 }

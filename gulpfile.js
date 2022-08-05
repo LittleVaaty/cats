@@ -1,5 +1,7 @@
 const gulp = require('gulp');
 const less = require('gulp-less');
+const packs = require('./utils/packs.js');
+
 
 /* ----------------------------------------- */
 /*  Compile LESS
@@ -30,3 +32,5 @@ exports.default = gulp.series(
   watchUpdates
 );
 exports.css = css;
+exports.compilePacks = gulp.series(packs.compile);
+

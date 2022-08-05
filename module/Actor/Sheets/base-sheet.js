@@ -1,6 +1,6 @@
 import { EntitySheetHelper } from "../../helper.js";
-import {ATTRIBUTE_TYPES} from "../../constants.js";
-import {CATS} from "../../config.js";
+import { ATTRIBUTE_TYPES } from "../../constants.js";
+import { CATS } from "../../config.js";
 import TalentConfig from "../../apps/talent-config.js";
 
 /**
@@ -16,9 +16,9 @@ export class BaseActorSheet extends ActorSheet {
       template: "systems/cats/templates/actor-sheet.html",
       width: 600,
       height: 600,
-      tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "attributes"}],
+      tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "attributes" }],
       scrollY: [".attributes"],
-      dragDrop: [{dragSelector: ".item-list .item", dropSelector: null}]
+      dragDrop: [{ dragSelector: ".item-list .item", dropSelector: null }]
     });
   }
 
@@ -42,12 +42,20 @@ export class BaseActorSheet extends ActorSheet {
     const source = this.actor.data._source.data;
     data.actor = actorData;
     data.data = actorData.data;
-  
-    for ( let [a, abl] of Object.entries(actorData.data.abilities)) {
+
+    for (let [a, abl] of Object.entries(actorData.data.abilities)) {
       abl.isPhysique = abl.type === "physique";
-      abl.isMental =  abl.type === "mental";
+      abl.isMental = abl.type === "mental";
     }
 
+    data.items = actorData.items;
+    for ( let i of data.items ) {
+      const item = this.actor.items.get(i._id);
+      i.labels = item.labels;
+    }
+    data.items.sort((a, b) => (a.sort || 0) - (b.sort || 0));
+
+    data.talents = data.items.filter(item => item.type === "talent");
 
     if (CATS.debug) console.log("CATS | ActorSheet getData", data);
     return data;
@@ -60,8 +68,9 @@ export class BaseActorSheet extends ActorSheet {
     super.activateListeners(html);
 
     // Everything below here is only needed if the sheet is editable
-    if ( !this.isEditable ) return;
+    if (!this.isEditable) return;
 
+    const inputs = html.find("input");
     // Attribute Management
     html.find(".attributes").on("click", ".attribute-control", EntitySheetHelper.onClickAttributeControl.bind(this));
     html.find(".groups").on("click", ".group-control", EntitySheetHelper.onClickAttributeGroupControl.bind(this));
@@ -74,6 +83,8 @@ export class BaseActorSheet extends ActorSheet {
 
     html.find(".add-talent").click(this._onAddTalent.bind(this));
     html.find(".remove-talent").click(this._onRemoveTalent.bind(this));
+    html.find('.talent').change(this._onUpdateTalent.bind(this));
+
 
     // Add draggable for Macro creation
     html.find(".attributes a.attribute-roll").each((i, a) => {
@@ -101,10 +112,10 @@ export class BaseActorSheet extends ActorSheet {
     const item = this.actor.items.get(li?.dataset.itemId);
 
     // Handle different actions
-    switch ( button.dataset.action ) {
+    switch (button.dataset.action) {
       case "create":
         const cls = getDocumentClass("Item");
-        return cls.create({name: game.i18n.localize("CATS.ItemNew"), type: "item"}, {parent: this.actor});
+        return cls.create({ name: game.i18n.localize("CATS.ItemNew"), type: "item" }, { parent: this.actor });
       case "edit":
         return item.sheet.render(true);
       case "delete":
@@ -146,12 +157,21 @@ export class BaseActorSheet extends ActorSheet {
     let app;
     app = new TalentConfig(this.object, null);
     app?.render(true);
- }
- _onRemoveTalent(event) {
-  event.preventDefault();
-  const talentIndex = event.currentTarget.getAttribute("data-talent");
-  var talents = this.actor.data.data.talents;
-  talents.splice(talentIndex, 1);
-  this.object.update({"data.talents": talents});
- }
+  }
+
+  _onRemoveTalent(event) {
+    event.preventDefault();
+    const talentIndex = event.currentTarget.getAttribute("data-talent");
+    var talents = this.actor.data.data.talents;
+    talents.splice(talentIndex, 1);
+    this.object.update({ "data.talents": talents });
+  }
+
+  _onUpdateTalent(event) {
+    const value = event.target.value;
+    const talentIndex = event.currentTarget.getAttribute("data-talent");
+    var talents = this.actor.data.data.talents;
+    talents[talentIndex].lvl = value;
+    this.object.update({"data.talents": talents});
+  }
 }

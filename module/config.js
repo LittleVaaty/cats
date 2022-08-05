@@ -23,26 +23,92 @@ CATS.races = {
   };
 
 CATS.talents = {
-  arm : "CATS.TalentArmure",
-  all : "CATS.TalentAllergene",
-  arr : "CATS.TalentArretTemporel",
-  bro : "CATS.TalentBrouilleurElectronique",
-  cau : "CATS.TalentClairaudience",
-  cvo : "CATS.TalentClairvoyance",
-  gra : "CATS.TalentControleGravitationel",
-  men : "CATS.TalentControleMental",
-  tem : "CATS.TalentDeplacementTemporel",
-  sch : "CATS.TalentEffetSchrodinger",
-  for : "CATS.TalentForce",
-  hyp : "CATS.TalentHypnose",
-  pas : "CATS.TalentPasseMuraille",
-  pes : "CATS.TalentPesanteur",
-  pol : "CATS.TalentPoltergeist",
-  pre : "CATS.TalentPrescience",
-  reg : "CATS.TalentRegeneration",
-  six : "CATS.TalentSixiemeSens",
-  som : "CATS.TalentSommeil",
-  tki : "CATS.TalentTelekinesie",
-  tpa : "CATS.TalentTelepathie",
-  tpo : "CATS.TalentTeleportation"
+  arm : {
+    "label": "CATS.TalentArmure",
+    "lvl": 0
+  },
+  all :{
+    "label": "CATS.TalentAllergene",
+    "lvl": 0
+  },
+  arr :{
+    "label": "CATS.TalentArretTemporel",
+    "lvl": 0
+  },
+  bro :{
+    "label": "CATS.TalentBrouilleurElectronique",
+    "lvl": 0
+  },
+  cau :{
+    "label": "CATS.TalentClairaudience",
+    "lvl": 0
+  },
+  cvo :{
+    "label": "CATS.TalentClairvoyance",
+    "lvl": 0
+  },
+  gra :{
+    "label": "CATS.TalentControleGravitationel",
+    "lvl": 0
+  },
+  men :{
+    "label": "CATS.TalentControleMental",
+    "lvl": 0
+  },
+  tem :{
+    "label": "CATS.TalentDeplacementTemporel",
+    "lvl": 0
+  },
+  sch :{
+    "label": "CATS.TalentEffetSchrodinger",
+    "lvl": 0
+  },
+  for :{
+    "label": "CATS.TalentForce",
+    "lvl": 0
+  },
+  hyp :{
+    "label": "CATS.TalentHypnose",
+    "lvl": 0
+  },
+  pas :{
+    "label": "CATS.TalentPasseMuraille",
+    "lvl": 0
+  },
+  pes :{
+    "label": "CATS.TalentPesanteur",
+    "lvl": 0
+  },
+  pol :{
+    "label": "CATS.TalentPoltergeist",
+    "lvl": 0
+  },
+  pre :{
+    "label": "CATS.TalentPrescience",
+    "lvl": 0
+  },
+  reg :{
+    "label": "CATS.TalentRegeneration",
+    "lvl": 0
+  },
+  six :{
+    "label": "CATS.TalentSixiemeSens",
+    "lvl": 0
+  },
+  som :{
+    "label": "CATS.TalentSommeil",
+    "lvl": 0
+  },
+  tki :{
+    "label": "CATS.TalentTelekinesie",
+    "lvl": 0
+  },
+  tpa :{
+    "label": "CATS.TalentTelepathie",
+    "lvl": 0
+  },
+  tpo : {
+    "label": "CATS.TalentTeleportation",
+    "lvl": 0
+  }
 }

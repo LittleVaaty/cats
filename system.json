@@ -8,7 +8,15 @@
   "author": "Vaaty",
   "esmodules": ["cats.js"],
   "styles": ["styles/simple.css"],
-  "packs": [],
+  "packs": [
+    {
+    "name": "talents",
+    "label": "Talents",
+    "system": "cats",
+    "path": "./packs/talents.db",
+    "type": "Item"
+  }
+],
   "languages": [
     {
       "lang": "fr",
