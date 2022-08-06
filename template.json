@@ -1,56 +1,58 @@
 {
   "Actor": {
     "types": [
-      "chat", "basset", "humain"
+      "chat",
+      "basset",
+      "humain"
     ],
-    "templates":{
+    "templates": {
       "common": {
         "age": "",
         "abilities": {
           "griffe": {
             "type": "physique",
             "label": "CATS.CaracGriffe",
-            "value": 0
+            "value": 1
           },
           "poil": {
             "type": "physique",
             "label": "CATS.CaracPoil",
-            "value": 0
+            "value": 1
           },
           "oeil": {
             "type": "physique",
             "label": "CATS.CaracOeil",
-            "value": 0
+            "value": 1
           },
           "queue": {
             "type": "physique",
             "label": "CATS.CaracQueue",
-            "value": 0
+            "value": 1
           },
           "chance": {
             "type": "chance",
             "label": "CATS.CaracChance",
-            "value": 0
+            "value": 1
           },
           "caresse": {
             "type": "mental",
             "label": "CATS.CaracCaresse",
-            "value": 0
+            "value": 1
           },
           "ronronnement": {
             "type": "mental",
             "label": "CATS.CaracRonronnement",
-            "value": 0
+            "value": 1
           },
           "cousinet": {
             "type": "mental",
             "label": "CATS.CaracCoussinet",
-            "value": 0
+            "value": 1
           },
           "vibrisse": {
             "type": "mental",
             "label": "CATS.CaracVibrisse",
-            "value": 0
+            "value": 1
           }
         },
         "quality": [],
@@ -75,7 +77,6 @@
         "reputation": 0,
         "lineage": "",
         "faction": "",
-        
         "skills": {
           "chasse": {
             "baseValue": "",
@@ -106,32 +107,27 @@
             "baseValue": "",
             "learnValue": "",
             "label": "CATS.SkillEnerverHumain"
-          }
-          ,
+          },
           "langageHumain": {
             "baseValue": "",
             "learnValue": "",
             "label": "CATS.SkillLangageHumain"
-          }
-          ,
+          },
           "leadership": {
             "baseValue": "",
             "learnValue": "",
             "label": "CATS.SkillLeadership"
-          }
-          ,
+          },
           "odorat": {
             "baseValue": "",
             "learnValue": "",
             "label": "CATS.SkillOdorat"
-          }
-          ,
+          },
           "orientation": {
             "baseValue": "",
             "learnValue": "",
             "label": "CATS.SkillOrientation"
-          }
-          ,
+          },
           "psychologieHumaine": {
             "baseValue": "",
             "learnValue": "",
@@ -200,7 +196,8 @@
   },
   "Item": {
     "types": [
-      "item", "talent"
+      "item",
+      "talent"
     ],
     "item": {
       "description": "",
