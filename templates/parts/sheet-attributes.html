@@ -14,12 +14,13 @@
 <div class="ability">
     <ol>
         {{#each actor.data.abilities as |ability key|}}
-            {{#if ability.isPhysique }}
-               <li>
-                    <label>{{localize ability.label }}</label>
-                     <input name="data.abilities.{{key}}.value" type="number" value="{{ability.value}}" placeholder="{{localize ability.label }}" />
-                </li>
-            {{/if}}
+        {{#if ability.isPhysique }}
+        <li>
+            <label>{{localize ability.label }}</label>
+            <input class="abilities" name="data.abilities.{{key}}.value" id="data.abilities.{{key}}" type="number"
+                value="{{ability.value}}" placeholder="{{localize ability.label }}" />
+        </li>
+        {{/if}}
         {{/each}}
     </ol>
 </div>
@@ -27,17 +28,19 @@
 <div class="ability">
     <ol>
         {{#each actor.data.abilities as |ability key|}}
-            {{#if ability.isMental }}
-                <li>
-                    <label>{{localize ability.label }}</label>
-                     <input name="data.abilities.{{key}}.value" type="number" value="{{ability.value}}" placeholder="{{localize ability.label }}" />
-                </li>
-            {{/if}}
+        {{#if ability.isMental }}
+        <li>
+            <label>{{localize ability.label }}</label>
+            <input class="abilities" name="data.abilities.{{key}}.value" type="number" value="{{ability.value}}"
+                placeholder="{{localize ability.label }}" />
+        </li>
+        {{/if}}
         {{/each}}
-        </ol>
+    </ol>
 </div>
 
 <div class="chance">
     <label>{{localize actor.data.abilities.chance.label }}</label>
-    <input name="data.abilities.chance.value" type="number" value="{{ actor.data.abilities.chance.value }}" placeholder="{{localize actor.data.abilities.chance.label }}" />
+    <input name="data.abilities.chance.value" type="number" value="{{ actor.data.abilities.chance.value }}"
+        placeholder="{{localize actor.data.abilities.chance.label }}" />
 </div>
