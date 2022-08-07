@@ -11,7 +11,6 @@ export class BaseActorSheet extends ActorSheet {
   /** @inheritdoc */
   static get defaultOptions() {
     return foundry.utils.mergeObject(super.defaultOptions, {
-      classes: ["cats", "sheet", "actor"],
       template: "systems/cats/templates/actor-sheet.html",
       width: 600,
       height: 600,

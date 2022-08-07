@@ -1,62 +1,66 @@
 <form class="flexcol {{cssClass}}" autocomplete="off">
 
     {{!-- Sheet Header --}}
-    <header class="sheet-header">
-        <div class=".sheet-header-item">
+    <header class="sheet-header flexrow">
+        <img class="profile" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100" />
+        <section class="header-details flexrow">
+
             <h1 class="charname">
-                <input name="" type="text" value="{{actor.name}}" placeholder="Type" disabled/>
+                <input name="name" type="text" value="{{actor.name}}" placeholder="Name"/>
             </h1>
-        </div>
-        <div class=".sheet-header-item">
-            <h1 class="charname">
-                <input name="name" type="text" value="{{actor.name}}" placeholder="Name" />
-            </h1>
-        </div>
-        <div class=".sheet-header-item">
-            <h1 class="charname">
-                <input name="data.age" type="number" value="{{actor.data.age}}" placeholder="Age" />
-            </h1>
-        </div>
-        <div class=".sheet-header-item container">
-            <div class="row">
-                <label class="col-25">Race: </label>
-                <select  class="selectrace col-75"  name="data.race" data-type="String">
-                    {{#select actor.data.race}}
-                        <option value="">---</option>
-                        {{#each config.races as |race key|}}
-                        <option value="{{key}}">{{localize race}}</option>
-                        {{/each}}
-                    {{/select}}
-                </select>
-            </div>
-            <div class="row">
-                <label class="col-25">Lignée: </label>
-                <input clas="col-75" name="data.lineage" type="text" value="{{actor.data.lineage}}" placeholder="Lignée" />
-            </div>
-            <div class="row">
-                <label class="col-25">Réputation: </label>
-                <input clas="col-75" name="data.reputation" type="number" value="{{actor.data.reputation}}" placeholder="Réputation" />
-            </div>
-            <div class="row">
-                <label class="col-25">Faction: </label>
-                <input clas="col-75" name="data.faction" type="text" value="{{actor.data.faction}}" placeholder="Faction" />
-            </div>
-        </div>
-        <img class=".sheet-header-item profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100" />
-        <div class=".sheet-header-item">
-            Niveaux de blessures
-            <ul class="injuries-list">
-                {{#each actor.data.injuries as |injury key|}}
-                <li class="skill">
-                    <div class="skill-name-controls">
-                        <label class="skill-name rollable">{{key}}</label>
-                        <input name="data.injuries.{{key}}" type="checkbox" {{checked injury}} />
+
+            <aside class="header-exp flexcol">
+                <div class="experience flexrow">
+                    <select name="type" data-type="String">
+                        {{#select actor.type}}
+                            <option value="">---</option>
+                            {{#each config.types as |type|}}
+                            <option value="{{type}}">{{type}}</option>
+                            {{/each}}
+                        {{/select}}
+                    </select>
+                </div>
+            </aside>
+
+            {{!-- Header Attributes --}}
+            <ul class="attributes flexrow">
+                <li class="attribute">
+                    <h4 class="attribute-name box-title">Race</h4>
+                    <div class="attribute-value attributable">
+                        <select name="data.race" data-type="String">
+                            {{#select actor.data.race}}
+                                <option value="">---</option>
+                                {{#each config.races as |race key|}}
+                                <option value="{{key}}">{{localize race}}</option>
+                                {{/each}}
+                            {{/select}}
+                        </select>
                     </div>
                 </li>
-                {{/each}}
+                <li class="attribute">
+                    <h4 class="attribute-name box-title">Lignée</h4>
+                    <div class="attribute-value">
+                        <input name="data.lineage" type="text" value="{{actor.data.lineage}}" placeholder="Lignée" />
+                    </div>
+                </li>
+                <li class="attribute">
+                    <h4 class="attribute-name box-title">Réputation</h4>
+                    <div class="attribute-value">
+                        <input name="data.reputation" type="number" value="{{actor.data.reputation}}" placeholder="Réputation" />
+                    </div>
+                </li>
+                <li class="attribute">
+                    <h4 class="attribute-name box-title">Faction</h4>
+                    <div class="attribute-value">
+                        <input name="data.faction" type="text" value="{{actor.data.faction}}" placeholder="Faction" />
+                    </div>
+                </li>
             </ul>
-        </div>
-        
+
+        </section>
+
+
+
     </header>
 
     {{!-- Sheet Tab Navigation --}}
@@ -101,45 +105,51 @@
                     <div class="item-buttons">
                         {{#each item.data.attributes as |itemAttr key|}}
                         {{#if itemAttr.dtype}}
-                            {{#if itemAttr.isFormula}}
-                                {{!-- Use the items.name.key format for shorthand. --}}
-                                {{#if ../../shorthand}}
-                                <button class="item-button rollable" data-roll="@items.{{slugify item.name}}.{{key}}" data-label="{{ itemAttr.label }}"
-                                    title="{{itemAttr.value}}">{{itemAttr.label}}</button>
-                                {{!-- Use the items.name.attributes.key.value format otherwise. --}}
-                                {{else}}
-                                <button class="item-button rollable"
-                                    data-roll="@items.{{slugify item.name}}.attributes.{{key}}.value" data-label="{{ itemAttr.label }}"
-                                    title="{{itemAttr.value}}">{{itemAttr.label}}</button>
-                                {{/if}}
-                            {{/if}}
+                        {{#if itemAttr.isFormula}}
+                        {{!-- Use the items.name.key format for shorthand. --}}
+                        {{#if ../../shorthand}}
+                        <button class="item-button rollable" data-roll="@items.{{slugify item.name}}.{{key}}"
+                            data-label="{{ itemAttr.label }}" title="{{itemAttr.value}}">{{itemAttr.label}}</button>
+                        {{!-- Use the items.name.attributes.key.value format otherwise. --}}
                         {{else}}
-                            {{#each itemAttr as |itemGroupedAttr groupedKey|}}
-                                {{#if itemGroupedAttr.isFormula}}
-                                    {{!-- Use the items.name.key format for shorthand. --}}
-                                    {{#if ../../../shorthand}}
-                                    <button class="item-button rollable" data-roll="@items.{{slugify item.name}}.{{key}}.{{groupedKey}}" data-label="{{ itemGroupedAttr.label }}"
-                                        title="{{itemGroupedAttr.value}}">{{itemGroupedAttr.label}}</button>
-                                    {{!-- Use the items.name.attributes.key.value format otherwise. --}}
-                                    {{else}}
-                                    <button class="item-button rollable"
-                                        data-roll="@items.{{slugify item.name}}.attributes.{{key}}.{{groupedKey}}.value" data-label="{{ itemGroupedAttr.label }}"
-                                        title="{{itemGroupedAttr.value}}">{{itemGroupedAttr.label}}</button>
-                                    {{/if}}
-                                {{/if}}
-                            {{/each}}
+                        <button class="item-button rollable"
+                            data-roll="@items.{{slugify item.name}}.attributes.{{key}}.value"
+                            data-label="{{ itemAttr.label }}" title="{{itemAttr.value}}">{{itemAttr.label}}</button>
+                        {{/if}}
+                        {{/if}}
+                        {{else}}
+                        {{#each itemAttr as |itemGroupedAttr groupedKey|}}
+                        {{#if itemGroupedAttr.isFormula}}
+                        {{!-- Use the items.name.key format for shorthand. --}}
+                        {{#if ../../../shorthand}}
+                        <button class="item-button rollable"
+                            data-roll="@items.{{slugify item.name}}.{{key}}.{{groupedKey}}"
+                            data-label="{{ itemGroupedAttr.label }}"
+                            title="{{itemGroupedAttr.value}}">{{itemGroupedAttr.label}}</button>
+                        {{!-- Use the items.name.attributes.key.value format otherwise. --}}
+                        {{else}}
+                        <button class="item-button rollable"
+                            data-roll="@items.{{slugify item.name}}.attributes.{{key}}.{{groupedKey}}.value"
+                            data-label="{{ itemGroupedAttr.label }}"
+                            title="{{itemGroupedAttr.value}}">{{itemGroupedAttr.label}}</button>
+                        {{/if}}
+                        {{/if}}
+                        {{/each}}
                         {{/if}}
                         {{/each}}
                     </div>
                     <div class="item-controls">
-                        <a class="item-control" title="{{ localize "SIMPLE.ItemEdit" }}" data-action="edit"><i class="fas fa-edit"></i></a>
-                        <a class="item-control" title="{{ localize "SIMPLE.ItemDelete" }}" data-action="delete"><i class="fas fa-trash"></i></a>
+                        <a class="item-control" title="{{ localize " SIMPLE.ItemEdit" }}" data-action="edit"><i
+                                class="fas fa-edit"></i></a>
+                        <a class="item-control" title="{{ localize " SIMPLE.ItemDelete" }}" data-action="delete"><i
+                                class="fas fa-trash"></i></a>
                     </div>
                 </li>
                 {{/each}}
             </ol>
             <p>
-                <a class="item-control" title="{{ localize "SIMPLE.ItemCreate" }}" data-action="create"><i class="fas fa-plus"></i> {{ localize "SIMPLE.ItemCreate" }}</a>
+                <a class="item-control" title="{{ localize " SIMPLE.ItemCreate" }}" data-action="create"><i
+                        class="fas fa-plus"></i> {{ localize "SIMPLE.ItemCreate" }}</a>
             </p>
         </div>
     </section>

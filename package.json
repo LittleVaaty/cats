@@ -6,6 +6,7 @@
     "css": "gulp css",
     "watch": "gulp",
     "gulp": "gulp",
+    "build:css": "gulp css",
     "build:db": "gulp compilePacks"
   },
   "browserslist": [

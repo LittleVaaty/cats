@@ -3,6 +3,12 @@ export const CATS = {};
 
 CATS.debug = true;
 
+CATS.types = [
+  "humain",
+  "chat",
+  "basset"
+]
+
 CATS.races = {
     "aby": "CATS.RaceAbyssin",
     "ang": "CATS.RaceAngora",

@@ -7,7 +7,7 @@
   "compatibleCoreVersion": "9",
   "author": "Vaaty",
   "esmodules": ["cats.js"],
-  "styles": ["styles/simple.css"],
+  "styles": ["cats.css"],
   "packs": [
     {
     "name": "talents",
