@@ -47,7 +47,7 @@ export class BaseActorSheet extends ActorSheet {
     }
 
     data.items = actorData.items;
-    for ( let i of data.items ) {
+    for (let i of data.items) {
       const item = this.actor.items.get(i._id);
       i.labels = item.labels;
     }
@@ -87,6 +87,16 @@ export class BaseActorSheet extends ActorSheet {
         ev.dataTransfer.setData('text/plain', JSON.stringify(dragData));
       }, false);
     });
+
+    //add listener for min and max abilities
+    let arr = document.getElementsByClassName("abilities");
+    for (let i = 0; i < arr.length; i++) {
+      arr[i].addEventListener("change", function () {
+        let v = parseInt(this.value);
+        if (v < 1) this.value = 1;
+        if (v > 5) this.value = 5;
+      });
+    };
   }
 
   /* -------------------------------------------- */
