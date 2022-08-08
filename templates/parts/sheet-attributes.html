@@ -11,32 +11,59 @@
     <input type="checkbox" name="data.life.nine" {{checked actor.data.life.nine}}>
 </div>
 <h2>Caractéristiques</h2>
-<div class="ability">
-    <ol>
-        {{#each actor.data.abilities as |ability key|}}
-        {{#if ability.isPhysique }}
-        <li>
-            <label>{{localize ability.label }}</label>
-            <input class="abilities" name="data.abilities.{{key}}.value" id="data.abilities.{{key}}" type="number"
-                value="{{ability.value}}" placeholder="{{localize ability.label }}" />
-        </li>
-        {{/if}}
-        {{/each}}
-    </ol>
-</div>
+<div class="flexrow">
+    <div class="ability-scores flexrow">
+        <div class="col-2"></div>
+        <div class="col-4 ability">
+            <h4 class="ability-name rollable">{{localize actor.data.abilities.poil.label}}</h4>
+            <input class="ability-score" name="data.abilities.poil.value" id="data.abilities.poil" type="number"
+                    value="{{ actor.data.abilities.poil.value }}" />
+        </div>
+        <div class="col-4 ability" >
+            <h4 class="ability-name rollable">{{localize actor.data.abilities.oeil.label}}</h4>
+            <input class="ability-score" name="data.abilities.oeil.value" id="data.abilities.oeil" type="number"
+                    value="{{ actor.data.abilities.oeil.value }}" />
+        </div>
+        <div class="col-2"></div>
 
-<div class="ability">
-    <ol>
-        {{#each actor.data.abilities as |ability key|}}
-        {{#if ability.isMental }}
-        <li>
-            <label>{{localize ability.label }}</label>
-            <input class="abilities" name="data.abilities.{{key}}.value" type="number" value="{{ability.value}}"
-                placeholder="{{localize ability.label }}" />
-        </li>
-        {{/if}}
-        {{/each}}
-    </ol>
+        <div class="col-4 ability">            
+            <h4 class="ability-name rollable">{{localize actor.data.abilities.griffe.label}}</h4>
+            <input class="ability-score" name="data.abilities.griffe.value" id="data.abilities.griffe" type="number"
+                    value="{{ actor.data.abilities.griffe.value }}" />
+        </div>
+        <div class="col-4"></div>
+        <div class="col-4 ability">
+            <h4 class="ability-name rollable">{{localize actor.data.abilities.queue.label}}</h4>
+            <input class="ability-score" name="data.abilities.queue.value" id="data.abilities.queue" type="number"
+                    value="{{ actor.data.abilities.queue.value }}" />
+        </div>
+    </div>
+    <div class="ability-scores flexrow">
+        <div class="col-2"></div>
+        <div class="col-4 ability">
+            <h4 class="ability-name rollable">{{localize actor.data.abilities.ronronnement.label}}</h4>
+            <input class="ability-score" name="data.abilities.ronronnement.value" id="data.abilities.ronronnement" type="number"
+                    value="{{ actor.data.abilities.ronronnement.value }}" />
+        </div>
+        <div class="col-4 ability">
+            <h4 class="ability-name rollable">{{localize actor.data.abilities.cousinet.label}}</h4>
+            <input class="ability-score" name="data.abilities.cousinet.value" id="data.abilities.cousinet" type="number"
+                    value="{{ actor.data.abilities.cousinet.value }}" />
+        </div>
+        <div class="col-2"></div>
+
+        <div class="col-4 ability">            
+            <h4 class="ability-name rollable">{{localize actor.data.abilities.caresse.label}}</h4>
+            <input class="ability-score" name="data.abilities.caresse.value" id="data.abilities.caresse" type="number"
+                    value="{{ actor.data.abilities.caresse.value }}" />
+        </div>
+        <div class="col-4"></div>
+        <div class="col-4 ability">
+            <h4 class="ability-name rollable">{{localize actor.data.abilities.vibrisse.label}}</h4>
+            <input class="ability-score" name="data.abilities.vibrisse.value" id="data.abilities.vibrisse" type="number"
+                    value="{{ actor.data.abilities.vibrisse.value }}" />
+        </div>
+    </div>
 </div>
 
 <div class="chance">

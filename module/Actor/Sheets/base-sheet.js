@@ -14,7 +14,7 @@ export class BaseActorSheet extends ActorSheet {
       template: "systems/cats/templates/actor-sheet.html",
       width: 600,
       height: 600,
-      tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "attributes" }],
+      tabs: [{ navSelector: ".sheet-navigation", contentSelector: ".sheet-body", initial: "attributes" }],
       scrollY: [".attributes"],
       dragDrop: [{ dragSelector: ".item-list .item", dropSelector: null }]
     });
@@ -89,7 +89,7 @@ export class BaseActorSheet extends ActorSheet {
     });
 
     //add listener for min and max abilities
-    let arr = document.getElementsByClassName("abilities");
+    let arr = document.getElementsByClassName("ability-score");
     for (let i = 0; i < arr.length; i++) {
       arr[i].addEventListener("change", function () {
         let v = parseInt(this.value);

@@ -648,6 +648,14 @@
   max-height: 90vh;
   overflow-y: auto;
 }
+.col-2 {
+  flex: 0 0 16.66666667%;
+  max-width: 16.66666667%;
+}
+.col-4 {
+  flex: 0 0 33.33333333%;
+  max-width: 33.33333333%;
+}
 .cats.sheet.actor {
   /* ----------------------------------------- */
   /*  Shared Styles                            */
@@ -842,7 +850,6 @@
   display: block;
 }
 .cats.sheet.actor .ability-scores {
-  flex: 0 0 100px;
   align-content: flex-start;
   list-style: none;
   margin: 0;
@@ -854,10 +861,17 @@
   border-radius: 3px;
 }
 .cats.sheet.actor .ability-scores .ability {
-  height: 70px;
   text-align: center;
   border-bottom: 2px groove #eeede0;
   position: relative;
+  border-bottom: 5px ridge #926B3A !important;
+  border-left: 5px ridge #926B3A;
+  border-right: 5px ridge #926B3A;
+  border-radius: 100px;
+  aspect-ratio: 1;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 .cats.sheet.actor .ability-scores .ability:last-child {
   border-bottom: none;
