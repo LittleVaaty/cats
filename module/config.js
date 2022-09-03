@@ -27,3 +27,5 @@ CATS.races = {
     "sia": "CATS.RaceSiamois",
     "som": "CATS.RaceSomali"
   };
+
+CATS.availableLevels =[0,1,2,3,4,5];

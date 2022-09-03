@@ -208,10 +208,11 @@
     },
     "talent": {
       "label": "",
-      "level": 0,
+      "level": 1,
       "fonctionnement": "",
       "rules": "",
-      "Explication": ""
+      "explication": "",
+      "delta": 0
     }
   }
 }
