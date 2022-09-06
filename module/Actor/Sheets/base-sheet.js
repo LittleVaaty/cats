@@ -91,13 +91,20 @@ export class BaseActorSheet extends ActorSheet {
     //add listener for min and max abilities
     let arr = document.getElementsByClassName("ability-score");
     for (let i = 0; i < arr.length; i++) {
-      arr[i].addEventListener("change", function () {
-        let v = parseInt(this.value);
-        if (v < 1) this.value = 1;
-        if (v > 5) this.value = 5;
-      });
+      arr[i].addEventListener("change", this._onChangeAbility.bind(this));
     };
+
   }
+
+  _onChangeAbility(event) {
+    let value = parseInt(event.target.value);
+    if (value < 1) value = 1;
+    if (value > 5) value = 5;
+    event.target.value = value;
+    this._updateSkills(event.target.name);
+    
+  }
+
 
   /* -------------------------------------------- */
 
