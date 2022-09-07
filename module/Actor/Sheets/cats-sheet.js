@@ -40,7 +40,6 @@ export class CatsActorSheet extends BaseActorSheet {
   }
 
   #updateSkills(context, skill, ability1, ability2){
-    console.log(skill);
     context.data.skills[skill].baseValue = Math.ceil((context.data.abilities[ability1].value + context.data.abilities[ability2].value) / 2);
   }
 }
