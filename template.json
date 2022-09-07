@@ -79,98 +79,108 @@
         "faction": "",
         "skills": {
           "chasse": {
-            "baseValue": "",
-            "learnValue": "",
+            "baseValue": 0,
+            "learnValue": 0,
             "label": "CATS.SkillChasse"
           },
           "cultureGeneral": {
-            "baseValue": "",
-            "learnValue": "",
+            "baseValue": 0,
+            "learnValue": 0,
             "label": "CATS.SkillCultureGeneral"
           },
           "combatGriffu": {
-            "baseValue": "",
-            "learnValue": "",
+            "baseValue": 0,
+            "learnValue": 0,
             "label": "CATS.SkillCombatGriffu"
           },
           "connaisanceRue": {
-            "baseValue": "",
-            "learnValue": "",
+            "baseValue": 0,
+            "learnValue": 0,
             "label": "CATS.SkillConnaisanceRue"
           },
           "discretion": {
-            "baseValue": "",
-            "learnValue": "",
+            "baseValue": 0,
+            "learnValue": 0,
             "label": "CATS.SkillDiscretion"
           },
+          "escalade": {
+            "baseValue": 0,
+            "learnValue": 0,
+            "label": "CATS.SkillEscalade"
+          },
           "enerverHumain": {
-            "baseValue": "",
-            "learnValue": "",
+            "baseValue": 0,
+            "learnValue": 0,
             "label": "CATS.SkillEnerverHumain"
           },
           "langageHumain": {
-            "baseValue": "",
-            "learnValue": "",
+            "baseValue": 0,
+            "learnValue": 0,
             "label": "CATS.SkillLangageHumain"
           },
           "leadership": {
-            "baseValue": "",
-            "learnValue": "",
+            "baseValue": 0,
+            "learnValue": 0,
             "label": "CATS.SkillLeadership"
           },
           "odorat": {
-            "baseValue": "",
-            "learnValue": "",
+            "baseValue": 0,
+            "learnValue": 0,
             "label": "CATS.SkillOdorat"
           },
           "orientation": {
-            "baseValue": "",
-            "learnValue": "",
+            "baseValue": 0,
+            "learnValue": 0,
             "label": "CATS.SkillOrientation"
           },
+          "persuation": {
+            "baseValue": 0,
+            "learnValue": 0,
+            "label": "CATS.SkillPersuation"
+          },
           "psychologieHumaine": {
-            "baseValue": "",
-            "learnValue": "",
+            "baseValue": 0,
+            "learnValue": 0,
             "label": "CATS.SkillPsychologieHumaine"
           },
           "reclamerManger": {
-            "baseValue": "",
-            "learnValue": "",
+            "baseValue": 0,
+            "learnValue": 0,
             "label": "CATS.SkillReclamerManger"
           },
           "reclamerCaresses": {
-            "baseValue": "",
-            "learnValue": "",
+            "baseValue": 0,
+            "learnValue": 0,
             "label": "CATS.SkillReclamerCaresses"
           },
           "saut": {
-            "baseValue": "",
-            "learnValue": "",
+            "baseValue": 0,
+            "learnValue": 0,
             "label": "CATS.SkillSaut"
           },
           "seduire": {
-            "baseValue": "",
-            "learnValue": "",
+            "baseValue": 0,
+            "learnValue": 0,
             "label": "CATS.SkillSeduire"
           },
           "survie": {
-            "baseValue": "",
-            "learnValue": "",
+            "baseValue": 0,
+            "learnValue": 0,
             "label": "CATS.SkillSurvie"
           },
           "repererTrouver": {
-            "baseValue": "",
-            "learnValue": "",
+            "baseValue": 0,
+            "learnValue": 0,
             "label": "CATS.SkillRepererTrouver"
           },
           "coutumesHumaine": {
-            "baseValue": "",
-            "learnValue": "",
+            "baseValue": 0,
+            "learnValue": 0,
             "label": "CATS.SkillCoutumesHumaine"
           },
           "utiliserObjet": {
-            "baseValue": "",
-            "learnValue": "",
+            "baseValue": 0,
+            "learnValue": 0,
             "label": "CATS.SkillUtiliserObjet"
           }
         }

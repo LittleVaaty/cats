@@ -1,12 +1,12 @@
 {{!-- Skills --}}
 <ul class="skills-list">
     {{#each actor.data.skills as |skill key|}}
-    <li class="skill">
-        <div class="skill-name-controls">
+    <li class="skill flexrow">
+
             <label class="skill-name rollable">{{localize skill.label}}</label>
-            <input name="data.skills.{{key}}.baseValue" type="number" value="{{skill.baseValue}}" />
+            <input name="data.skills.{{key}}.baseValue" type="number" value="{{skill.baseValue}}" disabled/>
             <input name="data.skills.{{key}}.learnValue" type="number" value="{{skill.learnValue}}" />
-        </div>
+
     </li>
     {{/each}}
 </ul>

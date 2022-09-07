@@ -25,7 +25,7 @@ export class BaseActorSheet extends ActorSheet {
   /** @inheritdoc */
   getData(options = {}) {
     let isOwner = this.actor.isOwner;
-    const data = {
+    const context = {
       owner: isOwner,
       limited: this.actor.limited,
       options: this.options,
@@ -38,25 +38,27 @@ export class BaseActorSheet extends ActorSheet {
     // The Actor's data
     const actorData = this.actor.data.toObject(false);
     const source = this.actor.data._source.data;
-    data.actor = actorData;
-    data.data = actorData.data;
+    context.actor = actorData;
+    context.data = actorData.data;
 
     for (let [a, abl] of Object.entries(actorData.data.abilities)) {
       abl.isPhysique = abl.type === "physique";
       abl.isMental = abl.type === "mental";
     }
 
-    data.items = actorData.items;
-    for (let i of data.items) {
+    context.items = actorData.items;
+    for (let i of context.items) {
       const item = this.actor.items.get(i._id);
       i.labels = item.labels;
     }
-    data.items.sort((a, b) => (a.sort || 0) - (b.sort || 0));
+    context.items.sort((a, b) => (a.sort || 0) - (b.sort || 0));
 
-    data.talents = data.items.filter(item => item.type === "talent");
+    context.talents = context.items.filter(item => item.type === "talent");
 
-    if (CATS.debug) console.log("CATS | ActorSheet getData", data);
-    return data;
+    this._updateSkills(context)
+
+    if (CATS.debug) console.log("CATS | ActorSheet getData", context);
+    return context;
   }
 
   /* -------------------------------------------- */
@@ -91,18 +93,16 @@ export class BaseActorSheet extends ActorSheet {
     //add listener for min and max abilities
     let arr = document.getElementsByClassName("ability-score");
     for (let i = 0; i < arr.length; i++) {
-      arr[i].addEventListener("change", this._onChangeAbility.bind(this));
+      arr[i].addEventListener("change", this._onChangeAbility);
     };
 
   }
 
   _onChangeAbility(event) {
-    let value = parseInt(event.target.value);
+    let value = parseInt(this.value);
     if (value < 1) value = 1;
     if (value > 5) value = 5;
-    event.target.value = value;
-    this._updateSkills(event.target.name);
-    
+    this.value = value;
   }
 
 
