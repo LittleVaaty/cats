@@ -7,7 +7,7 @@ CATS.types = [
   "humain",
   "chat",
   "basset"
-]
+];
 
 CATS.races = {
     "aby": "CATS.RaceAbyssin",
@@ -28,4 +28,4 @@ CATS.races = {
     "som": "CATS.RaceSomali"
   };
 
-CATS.availableLevels =[0,1,2,3,4,5];
+CATS.availableLevels = [0,1,2,3,4,5];

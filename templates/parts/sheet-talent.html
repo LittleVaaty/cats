@@ -16,15 +16,11 @@
             <h4 class="item-name">{{item.name}}</h4>
         </div>
 
-
         <div class="item-detail item-action">
-            <select name="item.data.level" class="level-selector">
+            <select name="items.{{id}}.data.level" class="level-selector">
                 {{#select item.data.level}}
-                {{#each item.data.availableLevels as |level| }}
-                <option value="{{level}}" {{disabled this.disabled}}>
-                    {{level}}
-                    {{#if item.data.delta}}({{numberFormat item.data.delta.delta sign=true}}){{/if}}
-                </option>
+                {{#each item.availableLevels as |availableLevel|}}
+                <option value="{{availableLevel}}">{{availableLevel}}</option>
                 {{/each}}
                 {{/select}}
             </select>

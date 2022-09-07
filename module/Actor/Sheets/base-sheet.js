@@ -54,6 +54,10 @@ export class BaseActorSheet extends ActorSheet {
     context.items.sort((a, b) => (a.sort || 0) - (b.sort || 0));
 
     context.talents = context.items.filter(item => item.type === "talent");
+    for (let talent of context.talents) {
+      talent.availableLevels = CATS.availableLevels;
+    }
+
 
     this._updateSkills(context)
 
