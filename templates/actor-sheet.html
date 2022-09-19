@@ -28,7 +28,7 @@
                     <h4 class="attribute-name box-title">Race</h4>
                     <div class="attribute-value attributable">
                         <select name="data.race" data-type="String">
-                            {{#select actor.data.race}}
+                            {{#select actor.system.race}}
                                 <option value="">---</option>
                                 {{#each config.races as |race key|}}
                                 <option value="{{key}}">{{localize race}}</option>
@@ -40,19 +40,19 @@
                 <li class="attribute">
                     <h4 class="attribute-name box-title">Lignée</h4>
                     <div class="attribute-value">
-                        <input name="data.lineage" type="text" value="{{actor.data.lineage}}" placeholder="Lignée" />
+                        <input name="data.lineage" type="text" value="{{actor.system.lineage}}" placeholder="Lignée" />
                     </div>
                 </li>
                 <li class="attribute">
                     <h4 class="attribute-name box-title">Réputation</h4>
                     <div class="attribute-value">
-                        <input name="data.reputation" type="number" value="{{actor.data.reputation}}" placeholder="Réputation" />
+                        <input name="data.reputation" type="number" value="{{actor.system.reputation}}" placeholder="Réputation" />
                     </div>
                 </li>
                 <li class="attribute">
                     <h4 class="attribute-name box-title">Faction</h4>
                     <div class="attribute-value">
-                        <input name="data.faction" type="text" value="{{actor.data.faction}}" placeholder="Faction" />
+                        <input name="data.faction" type="text" value="{{actor.system.faction}}" placeholder="Faction" />
                     </div>
                 </li>
             </ul>
