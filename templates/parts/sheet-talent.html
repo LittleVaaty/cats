@@ -17,8 +17,8 @@
         </div>
 
         <div class="item-detail item-action">
-            <select name="items.{{id}}.data.level" class="level-selector">
-                {{#select item.data.level}}
+            <select name="items.{{id}}.system.level" class="level-selector">
+                {{#select item.system.level}}
                 {{#each item.availableLevels as |availableLevel|}}
                 <option value="{{availableLevel}}">{{availableLevel}}</option>
                 {{/each}}
