@@ -1,17 +1,17 @@
 import { BaseActorSheet } from "./base-sheet.js";
 
 export class CatsActorSheet extends BaseActorSheet {
-    /**
+  /**
    * Define default rendering options for the NPC sheet.
    * @returns {object}
    */
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
-      classes: ["cats", "sheet", "actor", "character"]
+      classes: ["cats", "sheet", "actor", "character"],
     });
   }
 
-  _updateSkills(context){
+  _updateSkills(context) {
     this.#updateSkills(context, "chasse", "ronronnement", "vibrisse");
     this.#updateSkill(context, "cultureGeneral", "ronronnement");
     this.#updateSkills(context, "combatGriffu", "griffe", "oeil");
@@ -24,7 +24,12 @@ export class CatsActorSheet extends BaseActorSheet {
     this.#updateSkills(context, "odorat", "ronronnement", "vibrisse");
     this.#updateSkill(context, "orientation", "vibrisse");
     this.#updateSkills(context, "persuation", "caresse", "cousinet");
-    this.#updateSkills(context, "psychologieHumaine", "ronronnement", "vibrisse");
+    this.#updateSkills(
+      context,
+      "psychologieHumaine",
+      "ronronnement",
+      "vibrisse"
+    );
     this.#updateSkill(context, "reclamerManger", "caresse");
     this.#updateSkill(context, "reclamerCaresses", "cousinet");
     this.#updateSkill(context, "saut", "queue", "oeil");
@@ -35,11 +40,16 @@ export class CatsActorSheet extends BaseActorSheet {
     this.#updateSkill(context, "utiliserObjet", "oeil");
   }
 
-  #updateSkill(context, skill, ability){
-    context.data.skills[skill].baseValue = context.data.abilities[ability].value;
+  #updateSkill(context, skill, ability) {
+    context.system.skills[skill].baseValue =
+      context.system.abilities[ability].value;
   }
 
-  #updateSkills(context, skill, ability1, ability2){
-    context.data.skills[skill].baseValue = Math.ceil((context.data.abilities[ability1].value + context.data.abilities[ability2].value) / 2);
+  #updateSkills(context, skill, ability1, ability2) {
+    context.system.skills[skill].baseValue = Math.ceil(
+      (context.system.abilities[ability1].value +
+        context.system.abilities[ability2].value) /
+        2
+    );
   }
 }

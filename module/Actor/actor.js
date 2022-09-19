@@ -5,13 +5,12 @@ import { EntitySheetHelper } from "../helper.js";
  * @extends {Actor}
  */
 export class CatsActor extends Actor {
-
   /** @inheritdoc */
   prepareDerivedData() {
     super.prepareDerivedData();
-    this.data.data.groups = this.data.data.groups || {};
-    this.data.data.attributes = this.data.data.attributes || {};
-    EntitySheetHelper.clampResourceValues(this.data.data.attributes);
+    this.system.groups = this.system.groups || {};
+    this.system.attributes = this.system.attributes || {};
+    EntitySheetHelper.clampResourceValues(this.system.attributes);
   }
 
   /* -------------------------------------------- */
@@ -37,7 +36,6 @@ export class CatsActor extends Actor {
 
   /** @inheritdoc */
   getRollData() {
-
     // Copy the actor's system data
     const data = this.toObject(false).data;
     const shorthand = game.settings.get("cats", "macroShorthand");
@@ -57,7 +55,7 @@ export class CatsActor extends Actor {
     this._applyFormulaReplacements(data, formulaAttributes, shorthand);
 
     // Remove the attributes if necessary.
-    if ( !!shorthand ) {
+    if (!!shorthand) {
       delete data.attributes;
       delete data.attr;
       delete data.groups;
@@ -75,22 +73,22 @@ export class CatsActor extends Actor {
    */
   _applyShorthand(data, formulaAttributes, shorthand) {
     // Handle formula attributes when the short syntax is disabled.
-    for ( let [k, v] of Object.entries(data.attributes || {}) ) {
+    for (let [k, v] of Object.entries(data.attributes || {})) {
       // Make an array of formula attributes for later reference.
-      if ( v.dtype === "Formula" ) formulaAttributes.push(k);
+      if (v.dtype === "Formula") formulaAttributes.push(k);
       // Add shortened version of the attributes.
-      if ( !!shorthand ) {
-        if ( !(k in data) ) {
+      if (!!shorthand) {
+        if (!(k in data)) {
           // Non-grouped attributes.
-          if ( v.dtype ) {
+          if (v.dtype) {
             data[k] = v.value;
           }
           // Grouped attributes.
           else {
             data[k] = {};
-            for ( let [gk, gv] of Object.entries(v) ) {
+            for (let [gk, gv] of Object.entries(v)) {
               data[k][gk] = gv.value;
-              if ( gv.dtype === "Formula" ) formulaAttributes.push(`${k}.${gk}`);
+              if (gv.dtype === "Formula") formulaAttributes.push(`${k}.${gk}`);
             }
           }
         }
@@ -110,44 +108,46 @@ export class CatsActor extends Actor {
   _applyItems(data, itemAttributes, shorthand) {
     // Map all items data using their slugified names
     data.items = this.items.reduce((obj, item) => {
-      const key = item.name.slugify({strict: true});
+      const key = item.name.slugify({ strict: true });
       const itemData = item.toObject(false).data;
 
       // Add items to shorthand and note which ones are formula attributes.
-      for ( let [k, v] of Object.entries(itemData.attributes) ) {
+      for (let [k, v] of Object.entries(itemData.attributes)) {
         // When building the attribute list, prepend the item name for later use.
-        if ( v.dtype === "Formula" ) itemAttributes.push(`${key}..${k}`);
+        if (v.dtype === "Formula") itemAttributes.push(`${key}..${k}`);
         // Add shortened version of the attributes.
-        if ( !!shorthand ) {
-          if ( !(k in itemData) ) {
+        if (!!shorthand) {
+          if (!(k in itemData)) {
             // Non-grouped item attributes.
-            if ( v.dtype ) {
+            if (v.dtype) {
               itemData[k] = v.value;
             }
             // Grouped item attributes.
             else {
-              if ( !itemData[k] ) itemData[k] = {};
-              for ( let [gk, gv] of Object.entries(v) ) {
+              if (!itemData[k]) itemData[k] = {};
+              for (let [gk, gv] of Object.entries(v)) {
                 itemData[k][gk] = gv.value;
-                if ( gv.dtype === "Formula" ) itemAttributes.push(`${key}..${k}.${gk}`);
+                if (gv.dtype === "Formula")
+                  itemAttributes.push(`${key}..${k}.${gk}`);
               }
             }
           }
         }
         // Handle non-shorthand version of grouped attributes.
         else {
-          if ( !v.dtype ) {
-            if ( !itemData[k] ) itemData[k] = {};
-            for ( let [gk, gv] of Object.entries(v) ) {
+          if (!v.dtype) {
+            if (!itemData[k]) itemData[k] = {};
+            for (let [gk, gv] of Object.entries(v)) {
               itemData[k][gk] = gv.value;
-              if ( gv.dtype === "Formula" ) itemAttributes.push(`${key}..${k}.${gk}`);
+              if (gv.dtype === "Formula")
+                itemAttributes.push(`${key}..${k}.${gk}`);
             }
           }
         }
       }
 
       // Delete the original attributes key if using the shorthand syntax.
-      if ( !!shorthand ) {
+      if (!!shorthand) {
         delete itemData.attributes;
       }
       obj[key] = itemData;
@@ -158,44 +158,56 @@ export class CatsActor extends Actor {
   /* -------------------------------------------- */
 
   _applyItemsFormulaReplacements(data, itemAttributes, shorthand) {
-    for ( let k of itemAttributes ) {
+    for (let k of itemAttributes) {
       // Get the item name and separate the key.
       let item = null;
-      let itemKey = k.split('..');
+      let itemKey = k.split("..");
       item = itemKey[0];
       k = itemKey[1];
 
       // Handle group keys.
       let gk = null;
-      if ( k.includes('.') ) {
-        let attrKey = k.split('.');
+      if (k.includes(".")) {
+        let attrKey = k.split(".");
         k = attrKey[0];
         gk = attrKey[1];
       }
 
-      let formula = '';
-      if ( !!shorthand ) {
+      let formula = "";
+      if (!!shorthand) {
         // Handle grouped attributes first.
-        if ( data.items[item][k][gk] ) {
-          formula = data.items[item][k][gk].replace('@item.', `@items.${item}.`);
+        if (data.items[item][k][gk]) {
+          formula = data.items[item][k][gk].replace(
+            "@item.",
+            `@items.${item}.`
+          );
           data.items[item][k][gk] = Roll.replaceFormulaData(formula, data);
         }
         // Handle non-grouped attributes.
-        else if ( data.items[item][k] ) {
-          formula = data.items[item][k].replace('@item.', `@items.${item}.`);
+        else if (data.items[item][k]) {
+          formula = data.items[item][k].replace("@item.", `@items.${item}.`);
           data.items[item][k] = Roll.replaceFormulaData(formula, data);
         }
-      }
-      else {
+      } else {
         // Handle grouped attributes first.
-        if ( data.items[item]['attributes'][k][gk] ) {
-          formula = data.items[item]['attributes'][k][gk]['value'].replace('@item.', `@items.${item}.attributes.`);
-          data.items[item]['attributes'][k][gk]['value'] = Roll.replaceFormulaData(formula, data);
+        if (data.items[item]["attributes"][k][gk]) {
+          formula = data.items[item]["attributes"][k][gk]["value"].replace(
+            "@item.",
+            `@items.${item}.attributes.`
+          );
+          data.items[item]["attributes"][k][gk]["value"] =
+            Roll.replaceFormulaData(formula, data);
         }
         // Handle non-grouped attributes.
-        else if ( data.items[item]['attributes'][k]['value'] ) {
-          formula = data.items[item]['attributes'][k]['value'].replace('@item.', `@items.${item}.attributes.`);
-          data.items[item]['attributes'][k]['value'] = Roll.replaceFormulaData(formula, data);
+        else if (data.items[item]["attributes"][k]["value"]) {
+          formula = data.items[item]["attributes"][k]["value"].replace(
+            "@item.",
+            `@items.${item}.attributes.`
+          );
+          data.items[item]["attributes"][k]["value"] = Roll.replaceFormulaData(
+            formula,
+            data
+          );
         }
       }
     }
@@ -211,34 +223,40 @@ export class CatsActor extends Actor {
    */
   _applyFormulaReplacements(data, formulaAttributes, shorthand) {
     // Evaluate formula attributes after all other attributes have been handled, including items.
-    for ( let k of formulaAttributes ) {
+    for (let k of formulaAttributes) {
       // Grouped attributes are included as `group.attr`, so we need to split them into new keys.
       let attr = null;
-      if ( k.includes('.') ) {
-        let attrKey = k.split('.');
+      if (k.includes(".")) {
+        let attrKey = k.split(".");
         k = attrKey[0];
         attr = attrKey[1];
       }
       // Non-grouped attributes.
-      if ( data.attributes[k]?.value ) {
-        data.attributes[k].value = Roll.replaceFormulaData(String(data.attributes[k].value), data);
+      if (data.attributes[k]?.value) {
+        data.attributes[k].value = Roll.replaceFormulaData(
+          String(data.attributes[k].value),
+          data
+        );
       }
       // Grouped attributes.
-      else if ( attr ) {
-        data.attributes[k][attr].value = Roll.replaceFormulaData(String(data.attributes[k][attr].value), data);
+      else if (attr) {
+        data.attributes[k][attr].value = Roll.replaceFormulaData(
+          String(data.attributes[k][attr].value),
+          data
+        );
       }
 
       // Duplicate values to shorthand.
-      if ( !!shorthand ) {
+      if (!!shorthand) {
         // Non-grouped attributes.
-        if ( data.attributes[k]?.value ) {
+        if (data.attributes[k]?.value) {
           data[k] = data.attributes[k].value;
         }
         // Grouped attributes.
         else {
-          if ( attr ) {
+          if (attr) {
             // Initialize a group key in case it doesn't exist.
-            if ( !data[k] ) {
+            if (!data[k]) {
               data[k] = {};
             }
             data[k][attr] = data.attributes[k][attr].value;
@@ -253,11 +271,21 @@ export class CatsActor extends Actor {
   /** @inheritdoc */
   async modifyTokenAttribute(attribute, value, isDelta = false, isBar = true) {
     const current = foundry.utils.getProperty(this.data.data, attribute);
-    if ( !isBar || !isDelta || (current?.dtype !== "Resource") ) {
+    if (!isBar || !isDelta || current?.dtype !== "Resource") {
       return super.modifyTokenAttribute(attribute, value, isDelta, isBar);
     }
-    const updates = {[`data.${attribute}.value`]: Math.clamped(current.value + value, current.min, current.max)};
-    const allowed = Hooks.call("modifyTokenAttribute", {attribute, value, isDelta, isBar}, updates);
+    const updates = {
+      [`data.${attribute}.value`]: Math.clamped(
+        current.value + value,
+        current.min,
+        current.max
+      ),
+    };
+    const allowed = Hooks.call(
+      "modifyTokenAttribute",
+      { attribute, value, isDelta, isBar },
+      updates
+    );
     return allowed !== false ? this.update(updates) : this;
   }
 }
