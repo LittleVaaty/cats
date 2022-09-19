@@ -32,14 +32,19 @@ export class SimpleItemSheet extends ItemSheet {
   /* -------------------------------------------- */
 
   /** @inheritdoc */
-  getData() {
-    const data = super.getData();
-    const itemData = data.data;
-    EntitySheetHelper.getAttributeData(itemData);
-    data.systemData = data.system;
-    data.dtypes = ATTRIBUTE_TYPES;
-    data.itemStatus = this._getItemStatus(itemData);
-    return data;
+  async getData(options) {
+    const context = await super.getData(options);
+    EntitySheetHelper.getAttributeData(context.data);
+    context.systemData = context.data.system;
+    context.dtypes = ATTRIBUTE_TYPES;
+    context.descriptionHTML = await TextEditor.enrichHTML(
+      context.systemData.description,
+      {
+        secrets: this.document.isOwner,
+        async: true,
+      }
+    );
+    return context;
   }
 
   /* -------------------------------------------- */

@@ -19,13 +19,17 @@
         <label>Quantity</label>
         <input
           type="number"
-          name="data.quantity"
+          name="system.quantity"
           value="{{systemData.quantity}}"
         />
       </div>
       <div class="resource">
         <label>Weight</label>
-        <input type="number" name="data.weight" value="{{systemData.weight}}" />
+        <input
+          type="number"
+          name="system.weight"
+          value="{{systemData.weight}}"
+        />
       </div>
     </div>
   </header>
@@ -40,17 +44,23 @@
   <section class="sheet-body">
     {{!-- Description Tab --}}
     <div class="tab" data-group="primary" data-tab="description">
-      {{editor content=systemData.description target="data.description"
-      button=true owner=owner editable=editable rollData=rollData}}
+      {{editor descriptionHTML target="system.description" button=true
+      editable=editable engine="prosemirror"}}
     </div>
 
     {{!-- Attributes Tab --}}
     <div class="tab attributes" data-group="primary" data-tab="attributes">
       <header class="attributes-header flexrow">
-        <span class="attribute-key">{{localize "CATS.AttributeKey"}}</span>
-        <span class="attribute-value">{{localize "CATS.AttributeValue"}}</span>
-        <span class="attribute-label">{{localize "CATS.AttributeLabel"}}</span>
-        <span class="attribute-dtype">{{localize "CATS.AttributeDtype"}}</span>
+        <span class="attribute-key">{{localize "SIMPLE.AttributeKey"}}</span>
+        <span class="attribute-value"
+          >{{localize "SIMPLE.AttributeValue"}}</span
+        >
+        <span class="attribute-label"
+          >{{localize "SIMPLE.AttributeLabel"}}</span
+        >
+        <span class="attribute-dtype"
+          >{{localize "SIMPLE.AttributeDtype"}}</span
+        >
         <a class="attribute-control" data-action="create" data-group="{{group}}"
           ><i class="fas fa-plus"></i
         ></a>

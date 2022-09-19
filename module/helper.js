@@ -594,7 +594,7 @@ export class EntitySheetHelper {
     // Identify the template Actor types
     const collection = game.collections.get(this.documentName);
     const templates = collection.filter((a) => a.getFlag("cats", "isTemplate"));
-    const defaultType = this.metadata.types[0];
+    const defaultType = this.TYPES[0];
     const types = {
       [defaultType]: game.i18n.localize("CATS.NoTemplate"),
     };
@@ -625,8 +625,7 @@ export class EntitySheetHelper {
       callback: (html) => {
         // Get the form data
         const form = html[0].querySelector("form");
-        const fd = new FormDataExtended(form);
-        let createData = fd.toObject();
+        let createData = new FormDataExtended(form).object;
 
         // Merge with template data
         const template = collection.get(form.type.value);
