@@ -1,7 +1,7 @@
 {
-  "name": "worldbuilding",
+  "id": "cats",
   "version": "1.0.0",
-  "description": "CSS compiler for the Worldbuilding system",
+  "description": "CSS compiler for the Cats system",
   "scripts": {
     "css": "gulp css",
     "watch": "gulp",
@@ -12,11 +12,10 @@
   "browserslist": [
     "last 3 versions"
   ],
-  "author": "",
+  "authors": "",
   "license": "MIT",
   "private": true,
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "@babel/eslint-parser": "^7.15.4",
     "eslint-plugin-jsdoc": "^39.3.3",

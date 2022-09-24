@@ -27,8 +27,8 @@
                 <li class="attribute">
                     <h4 class="attribute-name box-title">Race</h4>
                     <div class="attribute-value attributable">
-                        <select name="data.race" data-type="String">
-                            {{#select actor.data.race}}
+                        <select name="system.race" data-type="String">
+                            {{#select actor.system.race}}
                                 <option value="">---</option>
                                 {{#each config.races as |race key|}}
                                 <option value="{{key}}">{{localize race}}</option>
@@ -40,19 +40,19 @@
                 <li class="attribute">
                     <h4 class="attribute-name box-title">Lignée</h4>
                     <div class="attribute-value">
-                        <input name="data.lineage" type="text" value="{{actor.data.lineage}}" placeholder="Lignée" />
+                        <input name="system.lineage" type="text" value="{{actor.system.lineage}}" placeholder="Lignée" />
                     </div>
                 </li>
                 <li class="attribute">
                     <h4 class="attribute-name box-title">Réputation</h4>
                     <div class="attribute-value">
-                        <input name="data.reputation" type="number" value="{{actor.data.reputation}}" placeholder="Réputation" />
+                        <input name="system.reputation" type="number" value="{{actor.system.reputation}}" placeholder="Réputation" />
                     </div>
                 </li>
                 <li class="attribute">
                     <h4 class="attribute-name box-title">Faction</h4>
                     <div class="attribute-value">
-                        <input name="data.faction" type="text" value="{{actor.data.faction}}" placeholder="Faction" />
+                        <input name="system.faction" type="text" value="{{actor.system.faction}}" placeholder="Faction" />
                     </div>
                 </li>
             </ul>
@@ -100,7 +100,7 @@
                     <h4 class="item-name">{{item.name}}</h4>
                     {{!-- Iterate through all attributes on the item and output buttons for any that are formula. --}}
                     <div class="item-buttons">
-                        {{#each item.data.attributes as |itemAttr key|}}
+                        {{#each item.system.attributes as |itemAttr key|}}
                         {{#if itemAttr.dtype}}
                         {{#if itemAttr.isFormula}}
                         {{!-- Use the items.name.key format for shorthand. --}}

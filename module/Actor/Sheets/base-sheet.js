@@ -7,16 +7,21 @@ import { CATS } from "../../config.js";
  * @extends {ActorSheet}
  */
 export class BaseActorSheet extends ActorSheet {
-
   /** @inheritdoc */
   static get defaultOptions() {
     return foundry.utils.mergeObject(super.defaultOptions, {
       template: "systems/cats/templates/actor-sheet.html",
       width: 600,
       height: 600,
-      tabs: [{ navSelector: ".sheet-navigation", contentSelector: ".sheet-body", initial: "attributes" }],
+      tabs: [
+        {
+          navSelector: ".sheet-navigation",
+          contentSelector: ".sheet-body",
+          initial: "attributes",
+        },
+      ],
       scrollY: [".attributes"],
-      dragDrop: [{ dragSelector: ".item-list .item", dropSelector: null }]
+      dragDrop: [{ dragSelector: ".item-list .item", dropSelector: null }],
     });
   }
 
@@ -32,16 +37,15 @@ export class BaseActorSheet extends ActorSheet {
       editable: this.isEditable,
       cssClass: isOwner ? "editable" : "locked",
       config: CATS,
-      rollData: this.actor.getRollData.bind(this.actor)
+      rollData: this.actor.getRollData.bind(this.actor),
     };
 
     // The Actor's data
-    const actorData = this.actor.data.toObject(false);
-    const source = this.actor.data._source.data;
+    const actorData = this.actor.toObject(false);
     context.actor = actorData;
-    context.data = actorData.data;
+    context.system = actorData.system;
 
-    for (let [a, abl] of Object.entries(actorData.data.abilities)) {
+    for (let [a, abl] of Object.entries(actorData.system.abilities)) {
       abl.isPhysique = abl.type === "physique";
       abl.isMental = abl.type === "mental";
     }
@@ -53,13 +57,12 @@ export class BaseActorSheet extends ActorSheet {
     }
     context.items.sort((a, b) => (a.sort || 0) - (b.sort || 0));
 
-    context.talents = context.items.filter(item => item.type === "talent");
+    context.talents = context.items.filter((item) => item.type === "talent");
     for (let talent of context.talents) {
       talent.availableLevels = CATS.availableLevels;
     }
 
-
-    this._updateSkills(context)
+    this._updateSkills(context);
 
     if (CATS.debug) console.log("CATS | ActorSheet getData", context);
     return context;
@@ -76,30 +79,50 @@ export class BaseActorSheet extends ActorSheet {
 
     const inputs = html.find("input");
     // Attribute Management
-    html.find(".attributes").on("click", ".attribute-control", EntitySheetHelper.onClickAttributeControl.bind(this));
-    html.find(".groups").on("click", ".group-control", EntitySheetHelper.onClickAttributeGroupControl.bind(this));
-    html.find(".attributes").on("click", "a.attribute-roll", EntitySheetHelper.onAttributeRoll.bind(this));
+    html
+      .find(".attributes")
+      .on(
+        "click",
+        ".attribute-control",
+        EntitySheetHelper.onClickAttributeControl.bind(this)
+      );
+    html
+      .find(".groups")
+      .on(
+        "click",
+        ".group-control",
+        EntitySheetHelper.onClickAttributeGroupControl.bind(this)
+      );
+    html
+      .find(".attributes")
+      .on(
+        "click",
+        "a.attribute-roll",
+        EntitySheetHelper.onAttributeRoll.bind(this)
+      );
 
     // Item Controls
     html.find(".item-control").click(this._onItemControl.bind(this));
     html.find(".items .rollable").on("click", this._onItemRoll.bind(this));
 
-
     // Add draggable for Macro creation
     html.find(".attributes a.attribute-roll").each((i, a) => {
       a.setAttribute("draggable", true);
-      a.addEventListener("dragstart", ev => {
-        let dragData = ev.currentTarget.dataset;
-        ev.dataTransfer.setData('text/plain', JSON.stringify(dragData));
-      }, false);
+      a.addEventListener(
+        "dragstart",
+        (ev) => {
+          let dragData = ev.currentTarget.dataset;
+          ev.dataTransfer.setData("text/plain", JSON.stringify(dragData));
+        },
+        false
+      );
     });
 
     //add listener for min and max abilities
     let arr = document.getElementsByClassName("ability-score");
     for (let i = 0; i < arr.length; i++) {
       arr[i].addEventListener("change", this._onChangeAbility);
-    };
-
+    }
   }
 
   _onChangeAbility(event) {
@@ -108,7 +131,6 @@ export class BaseActorSheet extends ActorSheet {
     if (value > 5) value = 5;
     this.value = value;
   }
-
 
   /* -------------------------------------------- */
 
@@ -129,7 +151,10 @@ export class BaseActorSheet extends ActorSheet {
     switch (button.dataset.action) {
       case "create":
         const cls = getDocumentClass("Item");
-        return cls.create({ name: game.i18n.localize("CATS.ItemNew"), type: "item" }, { parent: this.actor });
+        return cls.create(
+          { name: game.i18n.localize("CATS.ItemNew"), type: "item" },
+          { parent: this.actor }
+        );
       case "edit":
         return item.sheet.render(true);
       case "delete":
@@ -147,11 +172,11 @@ export class BaseActorSheet extends ActorSheet {
     let button = $(event.currentTarget);
     const li = button.parents(".item");
     const item = this.actor.items.get(li.data("itemId"));
-    let r = new Roll(button.data('roll'), this.actor.getRollData());
+    let r = new Roll(button.data("roll"), this.actor.getRollData());
     return r.toMessage({
       user: game.user.id,
       speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-      flavor: `<h2>${item.name}</h2><h3>${button.text()}</h3>`
+      flavor: `<h2>${item.name}</h2><h3>${button.text()}</h3>`,
     });
   }
 
